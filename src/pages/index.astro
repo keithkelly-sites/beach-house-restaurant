@@ -371,33 +371,8 @@ import coconutJoesLogo from '../assets/images/coconut-joes-logo.jpg';
     });
   }
 
-  // Reveal-on-scroll for sections
-  // JS adds reveal-hidden class, then removes on intersection.
-  // No JS = content stays visible (opacity: 1 is the CSS default).
-  const revealEls = document.querySelectorAll('.about, .menus, .banquet, .location');
-
-  if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
-    // Only hide sections that are below the fold
-    revealEls.forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top > window.innerHeight) {
-        el.classList.add('reveal-hidden');
-      }
-    });
-
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.remove('reveal-hidden');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
-    );
-    revealEls.forEach((el) => revealObserver.observe(el));
-  }
+  // Scroll hint fade
+  // (reveal-on-scroll animations removed — caused visibility issues)
 
   // Scroll hint fade
   const scrollHint = document.querySelector('.hero-scroll-hint');
@@ -517,21 +492,6 @@ import coconutJoesLogo from '../assets/images/coconut-joes-logo.jpg';
   }
 
   /* === ABOUT === */
-  .about {
-    opacity: 1;
-    transform: none;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .about {
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .about.reveal-hidden {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-  }
 
   .section-label {
     display: block;
@@ -613,19 +573,6 @@ import coconutJoesLogo from '../assets/images/coconut-joes-logo.jpg';
   .menus {
     background-color: var(--sand);
     padding: var(--space-xl) 0 var(--space-2xl);
-    opacity: 1;
-    transform: none;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .menus {
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .menus.reveal-hidden {
-      opacity: 0;
-      transform: translateY(30px);
-    }
   }
 
   .menus-heading {
@@ -693,21 +640,6 @@ import coconutJoesLogo from '../assets/images/coconut-joes-logo.jpg';
   }
 
   /* === BANQUET === */
-  .banquet {
-    opacity: 1;
-    transform: none;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .banquet {
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .banquet.reveal-hidden {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-  }
 
   .banquet-layout {
     display: grid;
@@ -838,21 +770,6 @@ import coconutJoesLogo from '../assets/images/coconut-joes-logo.jpg';
   }
 
   /* === LOCATION === */
-  .location {
-    opacity: 1;
-    transform: none;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .location {
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .location.reveal-hidden {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-  }
 
   .location-heading {
     margin-bottom: var(--space-xl);
@@ -1066,29 +983,6 @@ import coconutJoesLogo from '../assets/images/coconut-joes-logo.jpg';
 
     .contact-form .btn {
       grid-column: 1 / -1;
-    }
-  }
-
-  /* === REDUCED MOTION === */
-  @media (prefers-reduced-motion: reduce) {
-    .about,
-    .menus,
-    .banquet,
-    .location {
-      opacity: 1;
-      transform: none;
-      transition: none;
-    }
-
-    .hero-scroll-hint {
-      animation: none;
-    }
-
-    .menu-card,
-    .menu-card-image img,
-    .map-card,
-    .btn-tiki {
-      transition: none;
     }
   }
 
