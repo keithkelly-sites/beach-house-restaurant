@@ -1,0 +1,225 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import lunch01 from '../assets/images/lunch-01-full.jpg';
+import lunch02 from '../assets/images/lunch-02-full.jpg';
+---
+
+<Layout title="Lunch | Beach House Restaurant" description="Lunch served Monday through Saturday, 11am-1:30pm. Sandwiches, burgers, wraps, quesadillas, and more. Cash only.">
+
+  <section class="menu-hero grain">
+    <div class="menu-hero-inner container">
+      <span class="menu-badge">Monday &ndash; Saturday</span>
+      <h1>Lunch</h1>
+      <p class="menu-subtitle">11am &ndash; 1:30pm &middot; Cash Only</p>
+    </div>
+  </section>
+
+  <section class="menu-display section">
+    <div class="container">
+      <div class="menu-intro">
+        <p>Salads, reubens, gourmet burgers, wraps, quesadillas, hoagies, and a sandwich board that goes deep. Everything made fresh, nothing phoned in.</p>
+      </div>
+
+      <div class="menu-images">
+        <figure class="menu-page">
+          <Image
+            src={lunch01}
+            alt="Beach House lunch menu page 1: salads, combos and soup, quesadillas, wraps, hoagies, and hot sandwiches"
+            loading="eager"
+            width={800}
+            height={1100}
+            layout="constrained"
+          />
+          <figcaption>Salads, Quesadillas, Wraps &amp; Hoagies</figcaption>
+        </figure>
+        <figure class="menu-page">
+          <Image
+            src={lunch02}
+            alt="Beach House lunch menu page 2: sandwich board, grilled cheese choices, club sandwiches, reubens, chicken sandwiches, specialty sandwiches, gourmet burgers, baskets, and kids menu"
+            loading="lazy"
+            width={800}
+            height={1100}
+            layout="constrained"
+          />
+          <figcaption>Sandwiches, Burgers &amp; Baskets</figcaption>
+        </figure>
+      </div>
+
+      <div class="menu-callouts">
+        <div class="callout">
+          <h2 class="callout-heading">Sandwich Board</h2>
+          <p>Eight grilled cheese variations. Club sandwiches stacked high. Four different reubens including the Beach Reuben with turkey, cranberry, and Swiss.</p>
+        </div>
+        <div class="callout">
+          <h2 class="callout-heading">Gourmet Burgers</h2>
+          <p>The Blu Burger with bacon and bleu cheese. Kitchen Sink Burger loaded with everything. Greek Burger with feta and tzatziki. All fresh ground.</p>
+        </div>
+        <div class="callout">
+          <h2 class="callout-heading">Fresh Wraps</h2>
+          <p>Homemade salad wrap, chicken bacon ranch, steak fajita, turkey, chicken BLT, pepper jack roast beef, and the Greek chicken wrap.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-cta grain">
+    <div class="container text-center">
+      <p class="cta-text">One mile past Trax Farms on Route 88.</p>
+      <p class="cta-sub">Lunch starts at 11am, Monday through Saturday.</p>
+      <a href="tel:+17243487022" class="btn btn-primary">Call 724-348-7022</a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .menu-hero {
+    background-color: var(--ocean);
+    padding: var(--space-2xl) 0 var(--space-xl);
+    text-align: center;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3vw), 0 100%);
+    margin-bottom: calc(var(--space-lg) * -0.5);
+  }
+
+  .menu-badge {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ocean-faded);
+    margin-bottom: var(--space-sm);
+  }
+
+  .menu-hero h1 {
+    font-size: var(--font-size-hero);
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: -0.03em;
+    margin-bottom: 0.1em;
+  }
+
+  .menu-subtitle {
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    font-style: italic;
+    color: var(--ocean-light);
+  }
+
+  .menu-intro {
+    max-width: 38rem;
+    margin: 0 auto var(--space-xl);
+    text-align: center;
+    font-size: var(--font-size-lg);
+    color: var(--warm-brown);
+    line-height: 1.7;
+  }
+
+  .menu-images {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+  }
+
+  .menu-page {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow:
+      0 4px 30px oklch(0.25 0.015 60 / 0.1),
+      0 1px 3px oklch(0.25 0.015 60 / 0.06);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .menu-page:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 8px 40px oklch(0.25 0.015 60 / 0.14),
+      0 2px 6px oklch(0.25 0.015 60 / 0.08);
+  }
+
+  .menu-page img {
+    width: 100%;
+    height: auto;
+  }
+
+  .menu-page figcaption {
+    padding: var(--space-sm) var(--space-md);
+    font-family: var(--font-display);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--warm-brown);
+    text-align: center;
+    background-color: var(--ocean-faded);
+  }
+
+  .menu-callouts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .callout {
+    padding: var(--space-md);
+    background: var(--sand);
+    border-radius: var(--radius);
+    border-left: 4px solid var(--ocean);
+  }
+
+  .callout-heading {
+    font-size: var(--font-size-lg);
+    margin-bottom: 0.4em;
+    color: var(--charcoal);
+  }
+
+  .callout p {
+    font-size: var(--font-size-base);
+    color: var(--warm-brown);
+    line-height: 1.6;
+  }
+
+  .menu-cta {
+    background-color: var(--sun);
+    color: var(--charcoal);
+    padding: var(--space-xl) 0;
+    clip-path: polygon(0 3vw, 100% 0, 100% 100%, 0 100%);
+    margin-top: var(--space-lg);
+  }
+
+  .cta-text {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 0.3em;
+  }
+
+  .cta-sub {
+    font-size: var(--font-size-base);
+    color: var(--warm-brown);
+    margin-bottom: var(--space-md);
+  }
+
+  .menu-cta .btn-primary {
+    background-color: var(--charcoal);
+    color: var(--sun);
+  }
+
+  .menu-cta .btn-primary:hover {
+    background-color: var(--ocean);
+    color: var(--white);
+  }
+
+  @media (min-width: 52rem) {
+    .menu-images {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .menu-callouts {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

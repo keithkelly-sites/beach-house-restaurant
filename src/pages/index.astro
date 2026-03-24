@@ -1,0 +1,1104 @@
+---
+/*
+  Design concept: Warm vintage beach resort meets modern editorial.
+
+  That 1950s B&W photo of women holding the "BEACH HOUSE" sign is the soul of this place.
+  A family diner in landlocked western PA that earnestly embraces beach culture — every
+  menu item named after waves, a tiki bar out back, "Mineral Beach" in the name of a
+  sister business that's since closed. This isn't ironic. It's a family tradition.
+
+  Inspired by:
+  - Canlis: Letting one atmospheric photo tell the story, minimal competing text
+  - Rose Foods: Retro type as identity, menu-forward design
+  - Mid-century beach resort ephemera: yellowed paper, faded postcards, film grain
+
+  Signature moment: The hero. That vintage photo bleeds full-width with a warm sepia
+  treatment and film grain. "Beach House" is set in Fraunces at a scale so large it
+  becomes architecture — the type IS the sign in the photo. Scroll reveals the tagline
+  floating up from the bottom like a tide coming in.
+*/
+
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import heroImg from '../assets/images/home-hero-full.jpg';
+import breakfast01 from '../assets/images/breakfast-01.jpg';
+import lunch01 from '../assets/images/lunch-01.jpg';
+import coconutJoes02 from '../assets/images/coconut-joes-02.jpg';
+import coconutJoesLogo from '../assets/images/coconut-joes-logo.jpg';
+---
+
+<Layout title="Beach House Restaurant | Your Favorite Family Diner | Finleyville, PA" description="Breakfast and lunch served daily in Finleyville, PA. Family diner with beach-themed menu, tiki bar, and banquet hall. Cash only. Open 7am-1:30pm.">
+
+  <script is:inline type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Beach House Restaurant",
+    "url": "https://beach-house-restaurant.keithkelly.dev",
+    "telephone": "724-348-7022",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "6285 Route 88",
+      "addressLocality": "Finleyville",
+      "addressRegion": "PA",
+      "postalCode": "15332",
+      "addressCountry": "US"
+    },
+    "servesCuisine": "American",
+    "paymentAccepted": "Cash",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "07:00",
+        "closes": "13:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Sunday",
+        "opens": "07:00",
+        "closes": "13:30",
+        "description": "Breakfast Only"
+      }
+    ]
+  }
+  </script>
+
+  <!-- HERO — The signature moment -->
+  <section class="hero grain" aria-label="Welcome to Beach House Restaurant">
+    <div class="hero-image-wrap">
+      <Image
+        src={heroImg}
+        alt="Vintage black and white photo of women holding the Beach House sign, circa 1950s"
+        class="hero-image"
+        loading="eager"
+        width={1200}
+        height={900}
+        layout="constrained"
+      />
+      <div class="hero-grain-overlay" aria-hidden="true"></div>
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="hero-title-line">Beach</span>
+        <span class="hero-title-line">House</span>
+      </h1>
+      <div class="hero-meta">
+        <p class="hero-tagline">Your favorite family diner</p>
+        <p class="hero-details">Finleyville, PA &middot; Since the good old days</p>
+      </div>
+    </div>
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12l7 7 7-7" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- ABOUT — Who they are -->
+  <section class="about section">
+    <div class="container">
+      <div class="about-layout">
+        <div class="about-text">
+          <span class="section-label">Est. Finleyville, PA</span>
+          <h2>A diner that never<br />forgot the beach</h2>
+          <p>The Beach House has been feeding families on Route 88 for longer than most people can remember. Breakfast combos named after waves, a tiki bar out back, and a banquet hall that's hosted more weddings than anyone's kept count of.</p>
+          <p>Open daily at 7am. Lunch until 1:30. Sundays are breakfast only. And yes, cash only. Some things don't need to change.</p>
+        </div>
+        <div class="about-details">
+          <div class="detail-card">
+            <span class="detail-icon" aria-hidden="true">7am</span>
+            <span class="detail-text">Open daily at seven</span>
+          </div>
+          <div class="detail-card">
+            <span class="detail-icon" aria-hidden="true">$</span>
+            <span class="detail-text">Cash only</span>
+          </div>
+          <div class="detail-card">
+            <span class="detail-icon" aria-hidden="true">88</span>
+            <span class="detail-text">Route 88, one mile past Trax Farms</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE DIVIDER -->
+  <div class="wave-section" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" class="wave-divider">
+      <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="var(--sand)" />
+    </svg>
+  </div>
+
+  <!-- MENU PREVIEW -->
+  <section class="menus" aria-label="Our menus">
+    <div class="container">
+      <span class="section-label">The Menu</span>
+      <h2 class="menus-heading">From sunrise combos<br />to gourmet burgers</h2>
+
+      <div class="menu-cards">
+        <a href="/breakfast/" class="menu-card card">
+          <div class="menu-card-image">
+            <Image
+              src={breakfast01}
+              alt="Beach House breakfast menu featuring combos, griddle items, and more"
+              loading="lazy"
+              width={600}
+              height={400}
+              layout="constrained"
+            />
+          </div>
+          <div class="menu-card-body">
+            <h3>Breakfast</h3>
+            <p>Served daily, 7am &ndash; 1:30pm</p>
+            <span class="menu-card-cta">View menu &rarr;</span>
+          </div>
+        </a>
+
+        <a href="/lunch/" class="menu-card card">
+          <div class="menu-card-image">
+            <Image
+              src={lunch01}
+              alt="Beach House lunch menu featuring sandwiches, burgers, wraps, and more"
+              loading="lazy"
+              width={600}
+              height={400}
+              layout="constrained"
+            />
+          </div>
+          <div class="menu-card-body">
+            <h3>Lunch</h3>
+            <p>Mon &ndash; Sat, 11am &ndash; 1:30pm</p>
+            <span class="menu-card-cta">View menu &rarr;</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE DIVIDER -->
+  <div class="wave-section wave-sand-to-cream" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" class="wave-divider">
+      <path d="M0,20 C360,70 720,0 1080,50 C1260,70 1380,30 1440,40 L1440,80 L0,80 Z" fill="var(--cream)" />
+    </svg>
+  </div>
+
+  <!-- BEACH ROOM TEASER -->
+  <section class="banquet section">
+    <div class="container">
+      <div class="banquet-layout">
+        <div class="banquet-text">
+          <span class="section-label">Private Events</span>
+          <h2>The Beach Room</h2>
+          <p>Two bars, a stage, a dance floor, and a movie-theater-size screen. The Beach Room is the Beach House's banquet facility for weddings, showers, birthdays, and anything else worth celebrating.</p>
+          <p>Bring your own caterer or use ours. We work with all budgets.</p>
+          <div class="banquet-actions">
+            <a href="/banquets/" class="btn btn-primary">Learn more</a>
+            <a href="tel:+14125080200" class="banquet-phone">
+              Call Debbie: 412-508-0200
+            </a>
+          </div>
+        </div>
+        <div class="banquet-features">
+          <div class="feature">2 Large Bars</div>
+          <div class="feature">Stage</div>
+          <div class="feature">Dance Floor</div>
+          <div class="feature">Movie Screen</div>
+          <div class="feature">Sound System</div>
+          <div class="feature">Flexible Catering</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COCONUT JOE'S TEASER -->
+  <section class="tiki grain" aria-label="Coconut Joe's Tiki Bar">
+    <div class="tiki-bg">
+      <Image
+        src={coconutJoes02}
+        alt="Bike night at Coconut Joe's with rows of motorcycles at sunset"
+        loading="lazy"
+        class="tiki-bg-img"
+        width={1200}
+        height={800}
+        layout="constrained"
+      />
+      <div class="tiki-overlay"></div>
+    </div>
+    <div class="container tiki-content">
+      <Image
+        src={coconutJoesLogo}
+        alt="Coconut Joe's Tiki Bar logo"
+        class="tiki-logo-small"
+        width={72}
+        height={72}
+        loading="lazy"
+        layout="constrained"
+      />
+      <h2>Coconut Joe's Tiki Bar</h2>
+      <p class="tiki-desc">The outdoor bar at Beach House. Bike Night Thursdays, Car Cruise Fridays, Live Music Sundays.</p>
+      <a href="/coconut-joes/" class="btn btn-tiki">Check it out &rarr;</a>
+    </div>
+  </section>
+
+  <!-- LOCATION / CONTACT -->
+  <section class="location section" id="visit">
+    <div class="container">
+      <span class="section-label">Find Us</span>
+      <h2 class="location-heading">One mile past Trax Farms</h2>
+
+      <div class="location-layout">
+        <div class="map-card">
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=6285+Route+88+Finleyville+PA+15332"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="map-link"
+            aria-label="Get directions to Beach House Restaurant on Google Maps"
+          >
+            <div class="map-svg-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" class="location-map-svg" role="img" aria-label="Map showing Beach House Restaurant location on Route 88 in Finleyville, PA">
+                <rect width="600" height="400" fill="oklch(0.94 0.012 75)" rx="4"/>
+                <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M294.6,171.0 L289.5,179.9 L278.9,198.1 L271.1,211.4 L258.2,237.0 L264.7,264.2 L272.3,284.1 L282.1,314.0 L286.5,326.5" stroke="oklch(0.82 0.01 70)" stroke-width="3.5"/>
+                  <path d="M181.4,92.5 L199.5,84.5 L205.8,83.6 L219.5,83.8 L232.7,83.4 L243.1,80.4 L247.1,78.5 L257.6,68.1 L289.5,29.1 L304.9,-5.6" stroke="oklch(0.82 0.01 70)" stroke-width="3.5"/>
+                  <path d="M331.3,200.6 L468.3,76.8 L474.0,71.6 L510.6,40.4 L549.5,6.4" stroke="oklch(0.82 0.01 70)" stroke-width="3.5"/>
+                  <path d="M553.6,97.8 L555.9,80.7 L560.1,65.6 L573.5,48.0" stroke="oklch(0.82 0.01 70)" stroke-width="3.5"/>
+                  <path d="M468.3,76.8 L488.7,94.7 L506.1,100.8 L553.6,97.8 L578.2,104.0" stroke="oklch(0.82 0.01 70)" stroke-width="3.5"/>
+                  <path d="M181.4,92.5 L134.9,60.3 L132.2,58.4 L100.0,35.0 L91.3,28.0 L81.0,17.5 L65.8,-0.1 L54.3,-13.6" stroke="oklch(0.72 0.015 65)" stroke-width="6"/>
+                </g>
+                <g>
+                  <text x="265" y="250" font-size="9" fill="oklch(0.45 0.02 60)" text-anchor="middle" transform="rotate(-83,265,250)" font-family="var(--font-body), system-ui, sans-serif">Beach Street</text>
+                  <text x="140" y="75" font-size="11" fill="oklch(0.35 0.03 55)" text-anchor="middle" transform="rotate(-20,140,75)" font-family="var(--font-body), system-ui, sans-serif" font-weight="600">Route 88</text>
+                  <text x="430" y="130" font-size="9" fill="oklch(0.45 0.02 60)" text-anchor="middle" transform="rotate(-42,430,130)" font-family="var(--font-body), system-ui, sans-serif">Hidden Hollow Rd</text>
+                  <text x="540" y="93" font-size="9" fill="oklch(0.45 0.02 60)" text-anchor="middle" transform="rotate(2,540,93)" font-family="var(--font-body), system-ui, sans-serif">Village Lane</text>
+                  <circle cx="300" cy="203" r="8" fill="oklch(0.25 0.01 60 / 0.15)"/>
+                  <path d="M300,182 C292,182 288,190 288,195 C288,202 300,208 300,208 C300,208 312,202 312,195 C312,190 308,182 300,182Z" fill="oklch(0.52 0.1 230)"/>
+                  <circle cx="300" cy="193" r="4" fill="white"/>
+                  <text x="592" y="392" font-size="7" fill="oklch(0.6 0.01 60)" text-anchor="end" font-family="system-ui, sans-serif">&copy; OpenStreetMap</text>
+                </g>
+              </svg>
+            </div>
+            <div class="map-bar">
+              <span class="map-bar-name">Beach House Restaurant</span>
+              <span class="map-bar-cta">Open in Google Maps &rarr;</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="contact-info">
+          <div class="contact-block">
+            <h3>Address</h3>
+            <address>
+              6285 Route 88<br />
+              Finleyville, PA 15332
+            </address>
+          </div>
+          <div class="contact-block">
+            <h3>Hours</h3>
+            <dl class="hours-list">
+              <div class="hours-row">
+                <dt>Mon &ndash; Sat</dt>
+                <dd>7am &ndash; 1:30pm<br /><span class="hours-note">Breakfast &amp; Lunch</span></dd>
+              </div>
+              <div class="hours-row">
+                <dt>Sunday</dt>
+                <dd>7am &ndash; 1:30pm<br /><span class="hours-note">Breakfast Only</span></dd>
+              </div>
+            </dl>
+          </div>
+          <div class="contact-block">
+            <h3>Phone</h3>
+            <p><a href="tel:+17243487022">724-348-7022</a></p>
+            <p><a href="tel:+14125080200">412-508-0200</a> <span class="contact-note">(Banquets)</span></p>
+          </div>
+          <div class="cash-notice">
+            <span class="cash-icon" aria-hidden="true">$</span>
+            <span>Cash Only</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap">
+        <h3>Send us a message</h3>
+        <form class="contact-form" method="POST" action="#">
+          <div class="form-group">
+            <label for="contact-name">Name</label>
+            <input type="text" id="contact-name" name="name" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="contact-phone">Phone</label>
+            <input type="tel" id="contact-phone" name="phone" autocomplete="tel" />
+          </div>
+          <div class="form-group">
+            <label for="contact-email">Email</label>
+            <input type="email" id="contact-email" name="email" required autocomplete="email" />
+          </div>
+          <div class="form-group form-group-full">
+            <label for="contact-message">How can we serve you?</label>
+            <textarea id="contact-message" name="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  // Parallax scroll on hero image
+  const heroImage = document.querySelector('.hero-image');
+  const heroContent = document.querySelector('.hero-content');
+
+  if (heroImage && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const heroHeight = heroImage.parentElement.offsetHeight;
+          if (scrollY < heroHeight) {
+            heroImage.style.transform = `translateY(${scrollY * 0.3}px) scale(1.05)`;
+            if (heroContent) {
+              heroContent.style.opacity = String(1 - scrollY / (heroHeight * 0.7));
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+
+  // Reveal-on-scroll for sections
+  const revealEls = document.querySelectorAll('.about, .menus, .banquet, .location');
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
+  );
+  revealEls.forEach((el) => revealObserver.observe(el));
+
+  // Scroll hint fade
+  const scrollHint = document.querySelector('.hero-scroll-hint');
+  if (scrollHint) {
+    window.addEventListener('scroll', () => {
+      scrollHint.style.opacity = window.scrollY > 100 ? '0' : '1';
+    }, { passive: true });
+  }
+</script>
+
+<style>
+  /* === HERO === */
+  .hero {
+    position: relative;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 500px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    background-color: var(--charcoal);
+  }
+
+  .hero-image-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    filter: sepia(0.35) contrast(1.15) brightness(0.95) saturate(0.6);
+    transform: scale(1.05);
+    will-change: transform;
+  }
+
+  .hero-grain-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 180px;
+    opacity: 0.06;
+    mix-blend-mode: multiply;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      oklch(0.12 0.02 55 / 0.85) 0%,
+      oklch(0.12 0.02 55 / 0.3) 50%,
+      oklch(0.12 0.02 55 / 0.15) 100%
+    );
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 0 var(--gutter) var(--space-2xl);
+    will-change: opacity;
+  }
+
+  .hero-title {
+    font-size: clamp(4.5rem, 3rem + 10vw, 12rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    margin-bottom: var(--space-md);
+    text-shadow: 0 4px 30px oklch(0.1 0.02 55 / 0.4);
+  }
+
+  .hero-title-line {
+    display: block;
+  }
+
+  .hero-tagline {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--sun);
+    margin-bottom: 0.2em;
+  }
+
+  .hero-details {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: oklch(0.8 0.02 75);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: var(--space-md);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    color: oklch(0.8 0.02 75);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    animation: bobDown 2s ease-in-out infinite;
+  }
+
+  @keyframes bobDown {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* === ABOUT === */
+  .about {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .about:not(.revealed) {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .about {
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+  }
+
+  .section-label {
+    display: block;
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ocean);
+    margin-bottom: var(--space-sm);
+  }
+
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  .about-text h2 {
+    margin-bottom: var(--space-md);
+  }
+
+  .about-text p {
+    font-size: var(--font-size-base);
+    color: var(--warm-brown);
+    line-height: 1.75;
+    max-width: 36rem;
+  }
+
+  .about-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .detail-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--sand);
+    border-radius: var(--radius);
+  }
+
+  .detail-icon {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-weight: 900;
+    color: var(--ocean);
+    min-width: 3rem;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .detail-text {
+    font-size: var(--font-size-sm);
+    color: var(--charcoal);
+    font-weight: 500;
+  }
+
+  /* === WAVE DIVIDERS === */
+  .wave-section {
+    background-color: var(--cream);
+    margin-top: -1px;
+  }
+
+  .wave-section svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .wave-sand-to-cream {
+    background-color: var(--sand);
+  }
+
+  /* === MENUS === */
+  .menus {
+    background-color: var(--sand);
+    padding: var(--space-xl) 0 var(--space-2xl);
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .menus:not(.revealed) {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .menus {
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+  }
+
+  .menus-heading {
+    margin-bottom: var(--space-xl);
+  }
+
+  .menu-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .menu-card {
+    display: block;
+    text-decoration: none;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .menu-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px oklch(0.25 0.015 60 / 0.15);
+  }
+
+  .menu-card-image {
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+  }
+
+  .menu-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.6s ease;
+  }
+
+  .menu-card:hover .menu-card-image img {
+    transform: scale(1.05);
+  }
+
+  .menu-card-body {
+    padding: var(--space-md);
+  }
+
+  .menu-card-body h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: 0.2em;
+  }
+
+  .menu-card-body p {
+    font-size: var(--font-size-sm);
+    color: var(--warm-brown);
+    margin-bottom: var(--space-sm);
+  }
+
+  .menu-card-cta {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--ocean);
+    transition: color 0.2s ease;
+  }
+
+  .menu-card:hover .menu-card-cta {
+    color: var(--charcoal);
+  }
+
+  /* === BANQUET === */
+  .banquet {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .banquet:not(.revealed) {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .banquet {
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+  }
+
+  .banquet-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  .banquet-text h2 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .banquet-text p {
+    color: var(--warm-brown);
+    line-height: 1.75;
+    max-width: 36rem;
+  }
+
+  .banquet-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+  }
+
+  .banquet-phone {
+    font-size: var(--font-size-sm);
+    color: var(--ocean);
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .banquet-phone:hover {
+    color: var(--charcoal);
+  }
+
+  .banquet-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xs);
+  }
+
+  .feature {
+    padding: var(--space-sm) var(--space-md);
+    background: var(--sand);
+    border-radius: var(--radius);
+    font-family: var(--font-display);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--charcoal);
+    text-align: center;
+  }
+
+  /* === TIKI SECTION === */
+  .tiki {
+    position: relative;
+    padding: var(--space-2xl) 0;
+    overflow: hidden;
+  }
+
+  .tiki-bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  .tiki-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.5) brightness(0.4);
+  }
+
+  .tiki-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, oklch(0.15 0.03 55 / 0.8), oklch(0.2 0.05 30 / 0.7));
+  }
+
+  .tiki-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+  }
+
+  .tiki-logo-small {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--sun);
+    margin: 0 auto var(--space-md);
+  }
+
+  .tiki h2 {
+    font-size: var(--font-size-2xl);
+    color: var(--white);
+    margin-bottom: var(--space-sm);
+  }
+
+  .tiki-desc {
+    font-size: var(--font-size-base);
+    color: var(--sand);
+    max-width: 28rem;
+    margin: 0 auto var(--space-md);
+    line-height: 1.7;
+  }
+
+  .btn-tiki {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.85em 1.8em;
+    border-radius: var(--radius);
+    background-color: var(--sun);
+    color: var(--charcoal);
+    transition: all 0.3s ease;
+  }
+
+  .btn-tiki:hover {
+    background-color: var(--white);
+    transform: translateY(-2px);
+  }
+
+  /* === LOCATION === */
+  .location {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .location:not(.revealed) {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .location {
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+  }
+
+  .location-heading {
+    margin-bottom: var(--space-xl);
+  }
+
+  .location-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .map-card {
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 4px 30px oklch(0.25 0.015 60 / 0.08);
+    transition: transform 0.3s ease;
+  }
+
+  .map-card:hover {
+    transform: scale(1.01);
+  }
+
+  .map-link {
+    display: block;
+    text-decoration: none;
+  }
+
+  .map-svg-wrap {
+    overflow: hidden;
+  }
+
+  .location-map-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .map-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--white);
+  }
+
+  .map-bar-name {
+    font-family: var(--font-display);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--charcoal);
+  }
+
+  .map-bar-cta {
+    font-size: var(--font-size-xs);
+    color: var(--ocean);
+    font-weight: 500;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .contact-block h3 {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ocean);
+    margin-bottom: 0.4em;
+  }
+
+  .contact-block address {
+    font-style: normal;
+    font-size: var(--font-size-base);
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+
+  .contact-block p {
+    color: var(--charcoal);
+  }
+
+  .contact-block a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .contact-block a:hover {
+    color: var(--ocean);
+  }
+
+  .contact-note {
+    font-size: var(--font-size-xs);
+    color: var(--warm-brown-light);
+  }
+
+  .hours-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .hours-row {
+    display: flex;
+    gap: var(--space-md);
+  }
+
+  .hours-row dt {
+    font-weight: 600;
+    min-width: 6rem;
+    font-size: var(--font-size-sm);
+    color: var(--charcoal);
+  }
+
+  .hours-row dd {
+    font-size: var(--font-size-sm);
+    color: var(--charcoal);
+  }
+
+  .hours-note {
+    font-size: var(--font-size-xs);
+    color: var(--warm-brown-light);
+  }
+
+  .cash-notice {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--sun-pale);
+    border-radius: var(--radius);
+    font-family: var(--font-display);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--charcoal);
+    border: 2px solid var(--sun);
+  }
+
+  .cash-icon {
+    font-size: var(--font-size-xl);
+    color: var(--ocean);
+  }
+
+  /* === CONTACT FORM === */
+  .contact-form-wrap {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--sand-dark);
+  }
+
+  .contact-form-wrap h3 {
+    margin-bottom: var(--space-md);
+  }
+
+  .contact-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .form-group label {
+    display: block;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ocean);
+    margin-bottom: 0.3em;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.7em 0.9em;
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    color: var(--charcoal);
+    background: var(--white);
+    border: 2px solid var(--sand-dark);
+    border-radius: var(--radius);
+    transition: border-color 0.2s ease;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--ocean);
+    outline: none;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .contact-form .btn {
+    justify-self: start;
+    margin-top: var(--space-xs);
+  }
+
+  @media (min-width: 40rem) {
+    .contact-form {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .form-group-full {
+      grid-column: 1 / -1;
+    }
+
+    .contact-form .btn {
+      grid-column: 1 / -1;
+    }
+  }
+
+  /* === REDUCED MOTION === */
+  @media (prefers-reduced-motion: reduce) {
+    .about,
+    .menus,
+    .banquet,
+    .location {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .hero-scroll-hint {
+      animation: none;
+    }
+
+    .menu-card,
+    .menu-card-image img,
+    .map-card,
+    .btn-tiki {
+      transition: none;
+    }
+  }
+
+  /* === RESPONSIVE === */
+  @media (min-width: 52rem) {
+    .about-layout {
+      grid-template-columns: 1.4fr 0.6fr;
+    }
+
+    .menu-cards {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .banquet-layout {
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+
+    .banquet-features {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .location-layout {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+  }
+</style>

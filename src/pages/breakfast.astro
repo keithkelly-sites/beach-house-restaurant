@@ -1,0 +1,225 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import breakfast01 from '../assets/images/breakfast-01-full.jpg';
+import breakfast02 from '../assets/images/breakfast-02-full.jpg';
+---
+
+<Layout title="Breakfast | Beach House Restaurant" description="Breakfast served daily 7am-1:30pm at Beach House Restaurant. Classic diner favorites with beach-themed combos. Cash only.">
+
+  <section class="menu-hero grain">
+    <div class="menu-hero-inner container">
+      <span class="menu-badge">Served Daily</span>
+      <h1>Breakfast</h1>
+      <p class="menu-subtitle">7am &ndash; 1:30pm &middot; Cash Only</p>
+    </div>
+  </section>
+
+  <section class="menu-display section">
+    <div class="container">
+      <div class="menu-intro">
+        <p>From the Sunrise combo to the King of the Beach, every plate is built for the kind of morning that doesn't need to rush. Griddle cakes, scramblers, frittatas, and sandwiches, all made to order.</p>
+      </div>
+
+      <div class="menu-images">
+        <figure class="menu-page">
+          <Image
+            src={breakfast01}
+            alt="Beach House breakfast menu page 1: combos, griddle items, hotcake stacks, strawberry stacks, french toast, waffles, and kids corner"
+            loading="eager"
+            width={800}
+            height={1100}
+            layout="constrained"
+          />
+          <figcaption>Combos, Griddle &amp; Kids Corner</figcaption>
+        </figure>
+        <figure class="menu-page">
+          <Image
+            src={breakfast02}
+            alt="Beach House breakfast menu page 2: breakfast sandwiches, frittatas, scramblers, custom frittata builder, a la carte items, and beverages"
+            loading="lazy"
+            width={800}
+            height={1100}
+            layout="constrained"
+          />
+          <figcaption>Sandwiches, Frittatas &amp; Scramblers</figcaption>
+        </figure>
+      </div>
+
+      <div class="menu-callouts">
+        <div class="callout">
+          <h2 class="callout-heading">Beach Combos</h2>
+          <p>Named after the waves. The Sunrise, Big Surf, Tidal Wave, Wave Runner, King of the Beach. Each one comes with your choice of eggs, meat, and sides.</p>
+        </div>
+        <div class="callout">
+          <h2 class="callout-heading">Build Your Own</h2>
+          <p>Custom Frittata or Scrambler. Pick your base, add veggies, add meat, add cheese. Start at $7.25.</p>
+        </div>
+        <div class="callout">
+          <h2 class="callout-heading">From the Griddle</h2>
+          <p>Hotcake stacks, strawberry stacks, crunchy french toast, brown sugar cinnamon, apple pie french toast, and Nutella pancakes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-cta grain">
+    <div class="container text-center">
+      <p class="cta-text">One mile past Trax Farms on Route 88.</p>
+      <p class="cta-sub">Open daily at 7am. Breakfast only on Sundays.</p>
+      <a href="tel:+17243487022" class="btn btn-primary">Call 724-348-7022</a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .menu-hero {
+    background-color: var(--sun);
+    padding: var(--space-2xl) 0 var(--space-xl);
+    text-align: center;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3vw), 0 100%);
+    margin-bottom: calc(var(--space-lg) * -0.5);
+  }
+
+  .menu-badge {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--warm-brown);
+    margin-bottom: var(--space-sm);
+  }
+
+  .menu-hero h1 {
+    font-size: var(--font-size-hero);
+    font-weight: 900;
+    color: var(--charcoal);
+    letter-spacing: -0.03em;
+    margin-bottom: 0.1em;
+  }
+
+  .menu-subtitle {
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    font-style: italic;
+    color: var(--warm-brown);
+  }
+
+  .menu-intro {
+    max-width: 38rem;
+    margin: 0 auto var(--space-xl);
+    text-align: center;
+    font-size: var(--font-size-lg);
+    color: var(--warm-brown);
+    line-height: 1.7;
+  }
+
+  .menu-images {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+  }
+
+  .menu-page {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow:
+      0 4px 30px oklch(0.25 0.015 60 / 0.1),
+      0 1px 3px oklch(0.25 0.015 60 / 0.06);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .menu-page:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 8px 40px oklch(0.25 0.015 60 / 0.14),
+      0 2px 6px oklch(0.25 0.015 60 / 0.08);
+  }
+
+  .menu-page img {
+    width: 100%;
+    height: auto;
+  }
+
+  .menu-page figcaption {
+    padding: var(--space-sm) var(--space-md);
+    font-family: var(--font-display);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--warm-brown);
+    text-align: center;
+    background-color: var(--sun-pale);
+  }
+
+  .menu-callouts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .callout {
+    padding: var(--space-md);
+    background: var(--sand);
+    border-radius: var(--radius);
+    border-left: 4px solid var(--sun);
+  }
+
+  .callout-heading {
+    font-size: var(--font-size-lg);
+    margin-bottom: 0.4em;
+    color: var(--charcoal);
+  }
+
+  .callout p {
+    font-size: var(--font-size-base);
+    color: var(--warm-brown);
+    line-height: 1.6;
+  }
+
+  .menu-cta {
+    background-color: var(--ocean);
+    color: var(--white);
+    padding: var(--space-xl) 0;
+    clip-path: polygon(0 3vw, 100% 0, 100% 100%, 0 100%);
+    margin-top: var(--space-lg);
+  }
+
+  .cta-text {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.3em;
+  }
+
+  .cta-sub {
+    font-size: var(--font-size-base);
+    color: var(--ocean-faded);
+    margin-bottom: var(--space-md);
+  }
+
+  .menu-cta .btn-primary {
+    background-color: var(--white);
+    color: var(--ocean);
+  }
+
+  .menu-cta .btn-primary:hover {
+    background-color: var(--sun);
+    color: var(--charcoal);
+  }
+
+  @media (min-width: 52rem) {
+    .menu-images {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .menu-callouts {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

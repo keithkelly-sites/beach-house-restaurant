@@ -1,0 +1,261 @@
+/* ============================================
+   Beach House Restaurant — Global Styles
+
+   Concept: Warm vintage beach resort meets modern editorial.
+   The 1950s B&W hero photo anchors the brand. Wavy clip-paths,
+   film grain overlays, and sepia warmth throughout. Color palette
+   from yellowed menu paper and faded ocean postcards.
+
+   References: Canlis (storytelling through photography),
+   Rose Foods (retro type + minimal photos), vintage beach
+   resort ephemera for color/texture.
+   ============================================ */
+
+@layer reset, base, layout, components, utilities;
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    font: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  ul, ol {
+    list-style: none;
+  }
+}
+
+@layer base {
+  :root {
+    /* Palette — warm sand, faded ocean, yellowed paper */
+    --cream: oklch(0.96 0.015 80);
+    --sand: oklch(0.92 0.028 75);
+    --sand-dark: oklch(0.85 0.035 72);
+    --ocean: oklch(0.52 0.1 230);
+    --ocean-light: oklch(0.72 0.07 225);
+    --ocean-faded: oklch(0.88 0.04 220);
+    --sun: oklch(0.87 0.14 88);
+    --sun-pale: oklch(0.94 0.06 88);
+    --coral: oklch(0.62 0.16 25);
+    --charcoal: oklch(0.25 0.015 60);
+    --warm-brown: oklch(0.38 0.04 55);
+    --warm-brown-light: oklch(0.55 0.035 58);
+    --white: oklch(0.99 0.005 90);
+
+    /* Typography */
+    --font-size-xs: clamp(0.7rem, 0.65rem + 0.25vw, 0.8rem);
+    --font-size-sm: clamp(0.8rem, 0.75rem + 0.3vw, 0.95rem);
+    --font-size-base: clamp(0.95rem, 0.88rem + 0.4vw, 1.125rem);
+    --font-size-lg: clamp(1.15rem, 1rem + 0.6vw, 1.4rem);
+    --font-size-xl: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+    --font-size-2xl: clamp(2rem, 1.5rem + 2vw, 3rem);
+    --font-size-3xl: clamp(2.5rem, 1.8rem + 3vw, 4.5rem);
+    --font-size-hero: clamp(3.5rem, 2rem + 6vw, 8rem);
+
+    /* Spacing */
+    --space-xs: clamp(0.5rem, 0.4rem + 0.3vw, 0.75rem);
+    --space-sm: clamp(0.75rem, 0.6rem + 0.5vw, 1rem);
+    --space-md: clamp(1.25rem, 1rem + 1vw, 2rem);
+    --space-lg: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+    --space-xl: clamp(3rem, 2rem + 4vw, 6rem);
+    --space-2xl: clamp(4rem, 3rem + 5vw, 9rem);
+
+    /* Layout */
+    --max-width: 72rem;
+    --gutter: clamp(1.25rem, 1rem + 2vw, 3rem);
+
+    /* Misc */
+    --radius: 0.25rem;
+    --grain-opacity: 0.035;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: var(--font-body), system-ui, sans-serif;
+    font-size: var(--font-size-base);
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--charcoal);
+    background-color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--charcoal);
+    text-wrap: balance;
+  }
+
+  h1 { font-size: var(--font-size-3xl); }
+  h2 { font-size: var(--font-size-2xl); }
+  h3 { font-size: var(--font-size-xl); }
+  h4 { font-size: var(--font-size-lg); }
+
+  p + p { margin-top: 1em; }
+
+  ::selection {
+    background-color: var(--sun);
+    color: var(--charcoal);
+  }
+}
+
+@layer layout {
+  .container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .section {
+    padding-block: var(--space-xl);
+  }
+}
+
+@layer components {
+  /* Film grain overlay — applied via ::after on sections */
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: var(--grain-opacity);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 200px;
+    mix-blend-mode: multiply;
+    z-index: 2;
+  }
+
+  .grain {
+    position: relative;
+  }
+
+  /* Wave dividers */
+  .wave-divider {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: -1px;
+  }
+
+  /* Vintage photo treatment */
+  .vintage-photo {
+    filter: sepia(0.2) contrast(1.1) brightness(1.05) saturate(0.85);
+  }
+
+  /* CTA button */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.85em 1.8em;
+    border-radius: var(--radius);
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background-color: var(--ocean);
+    color: var(--white);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--charcoal);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    border: 2px solid var(--charcoal);
+    color: var(--charcoal);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--charcoal);
+    color: var(--cream);
+    transform: translateY(-2px);
+  }
+
+  /* Badge */
+  .badge {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3em 0.8em;
+    background-color: var(--sun);
+    color: var(--charcoal);
+    border-radius: var(--radius);
+  }
+
+  /* Card */
+  .card {
+    background-color: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 2px 20px oklch(0.25 0.015 60 / 0.08);
+  }
+}
+
+@layer utilities {
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .text-center { text-align: center; }
+  .text-balance { text-wrap: balance; }
+}
+
+/* Reduced motion — reset all animated elements to visible final state */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

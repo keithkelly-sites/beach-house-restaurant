@@ -1,0 +1,487 @@
+---
+/*
+  Design concept: Warm vintage beach resort meets modern editorial.
+
+  Inspired by the 1950s B&W photo of women holding the "BEACH HOUSE" sign —
+  the heart of this place is earnest mid-century beach nostalgia in landlocked
+  western PA. Not ironic, not kitschy. Just a family that loves the beach theme
+  and has been feeding their community since before that photo faded.
+
+  References:
+  - Canlis (storytelling through atmospheric photography, letting the space speak)
+  - Rose Foods (retro type as identity, minimal imagery, menu-forward)
+  - Vintage beach resort ephemera for color — yellowed paper, faded postcards,
+    sun-bleached wood
+
+  Signature moment: The hero — that vintage B&W photo bleeds full-width with
+  film grain overlay, the restaurant name set in Fraunces at massive scale
+  overlapping the image. It feels like finding an old postcard in a drawer.
+*/
+
+import { Font } from 'astro:assets';
+import { ClientRouter } from 'astro:transitions';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const { title, description = 'Your favorite family diner in Finleyville, PA. Breakfast & lunch served daily. Cash only.', image = '/images/home-hero.jpg' } = Astro.props;
+const currentPath = Astro.url.pathname;
+const canonicalUrl = new URL(currentPath, Astro.site).href;
+const ogImageUrl = new URL(image, Astro.site).href;
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/breakfast/', label: 'Breakfast' },
+  { href: '/lunch/', label: 'Lunch' },
+  { href: '/banquets/', label: 'The Beach Room' },
+  { href: '/coconut-joes/', label: "Coconut Joe's" },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:site_name" content="Beach House Restaurant" />
+    <Font cssVariable="--font-display" preload />
+    <Font cssVariable="--font-body" preload />
+    <ClientRouter />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+    <header class="site-header" id="site-header">
+      <div class="header-inner">
+        <a href="/" class="header-logo" aria-label="Beach House Restaurant - Home">
+          <span class="logo-text">Beach House</span>
+        </a>
+
+        <button
+          class="menu-toggle"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          aria-label="Open menu"
+        >
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </button>
+
+        <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            {navLinks.map(link => (
+              <li>
+                <a
+                  href={link.href}
+                  class:list={['nav-link', { active: currentPath === link.href }]}
+                  aria-current={currentPath === link.href ? 'page' : undefined}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <footer class="site-footer grain">
+      <div class="footer-wave">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 L0,0 Z" fill="var(--cream)" />
+        </svg>
+      </div>
+      <div class="footer-inner container">
+        <div class="footer-brand">
+          <p class="footer-name">Beach House Restaurant</p>
+          <p class="footer-tagline">Your favorite family diner</p>
+        </div>
+        <div class="footer-info">
+          <div class="footer-col">
+            <p class="footer-heading">Visit Us</p>
+            <address>
+              6285 Route 88<br />
+              Finleyville, PA 15332
+            </address>
+          </div>
+          <div class="footer-col">
+            <p class="footer-heading">Hours</p>
+            <p>Open Daily 7am &ndash; 1:30pm</p>
+            <p>Breakfast Only Sundays</p>
+            <p>Lunch Mon &ndash; Sat, 11am &ndash; 1:30pm</p>
+          </div>
+          <div class="footer-col">
+            <p class="footer-heading">Call Us</p>
+            <p><a href="tel:+17243487022">724-348-7022</a></p>
+            <p><a href="tel:+14125080200">412-508-0200</a> <span class="footer-note">(Banquets)</span></p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="cash-badge">Cash Only</p>
+          <p class="footer-copy">&copy; {new Date().getFullYear()} Beach House Restaurant. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const toggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('.main-nav');
+      const header = document.getElementById('site-header');
+
+      if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+          const expanded = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!expanded));
+          nav.classList.toggle('is-open');
+          document.body.classList.toggle('nav-open');
+        });
+
+        // Close on link click
+        nav.querySelectorAll('.nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+            toggle.setAttribute('aria-expanded', 'false');
+            nav.classList.remove('is-open');
+            document.body.classList.remove('nav-open');
+          });
+        });
+      }
+
+      // Sticky header background on scroll
+      if (header) {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            header.classList.toggle('scrolled', !entry.isIntersecting);
+          },
+          { threshold: 0, rootMargin: '-1px 0px 0px 0px' }
+        );
+        const sentinel = document.createElement('div');
+        sentinel.style.height = '1px';
+        sentinel.style.position = 'absolute';
+        sentinel.style.top = '0';
+        document.body.prepend(sentinel);
+        observer.observe(sentinel);
+      }
+    </script>
+
+    <style>
+      /* === Header === */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        padding: 1rem 0;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .site-header.scrolled {
+        background-color: oklch(0.96 0.015 80 / 0.95);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 2px 20px oklch(0.25 0.015 60 / 0.06);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: var(--max-width);
+        margin-inline: auto;
+        padding-inline: var(--gutter);
+      }
+
+      .header-logo {
+        text-decoration: none;
+        z-index: 101;
+      }
+
+      .logo-text {
+        font-family: var(--font-display), Georgia, serif;
+        font-size: clamp(1.3rem, 1rem + 1vw, 1.6rem);
+        font-weight: 900;
+        color: var(--charcoal);
+        letter-spacing: -0.02em;
+      }
+
+      /* Hamburger */
+      .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 8px;
+        z-index: 101;
+      }
+
+      .menu-bar {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background-color: var(--charcoal);
+        border-radius: 2px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+
+      .menu-toggle[aria-expanded="true"] .menu-bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .menu-toggle[aria-expanded="true"] .menu-bar:nth-child(2) {
+        opacity: 0;
+      }
+      .menu-toggle[aria-expanded="true"] .menu-bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      /* Navigation */
+      .main-nav {
+        position: fixed;
+        inset: 0;
+        background-color: var(--cream);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+      }
+
+      .main-nav.is-open {
+        display: flex;
+      }
+
+      .nav-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-md);
+      }
+
+      .nav-link {
+        font-family: var(--font-display), Georgia, serif;
+        font-size: var(--font-size-2xl);
+        font-weight: 700;
+        color: var(--charcoal);
+        text-decoration: none;
+        position: relative;
+        transition: color 0.2s ease;
+      }
+
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background-color: var(--sun);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      .nav-link.active {
+        color: var(--ocean);
+      }
+
+      @media (min-width: 52rem) {
+        .menu-toggle { display: none; }
+
+        .main-nav {
+          position: static;
+          background: none;
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .nav-list {
+          flex-direction: row;
+          gap: var(--space-md);
+        }
+
+        .nav-link {
+          font-size: var(--font-size-sm);
+          font-weight: 500;
+          font-family: var(--font-body), system-ui, sans-serif;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+        }
+
+        .nav-link::after {
+          height: 2px;
+        }
+      }
+
+      /* === Footer === */
+      .site-footer {
+        background-color: var(--charcoal);
+        color: var(--sand);
+        padding-bottom: var(--space-lg);
+      }
+
+      .footer-wave {
+        margin-bottom: var(--space-lg);
+      }
+
+      .footer-wave svg {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .footer-inner {
+        position: relative;
+        z-index: 3;
+      }
+
+      .footer-brand {
+        margin-bottom: var(--space-lg);
+      }
+
+      .footer-name {
+        font-family: var(--font-display), Georgia, serif;
+        font-size: var(--font-size-xl);
+        font-weight: 900;
+        color: var(--white);
+        margin-bottom: 0.25em;
+      }
+
+      .footer-tagline {
+        font-size: var(--font-size-sm);
+        color: var(--warm-brown-light);
+        font-style: italic;
+      }
+
+      .footer-info {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+        margin-bottom: var(--space-lg);
+      }
+
+      .footer-heading {
+        font-family: var(--font-body), system-ui, sans-serif;
+        font-size: var(--font-size-xs);
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--sun);
+        margin-bottom: 0.5em;
+      }
+
+      .footer-col p,
+      .footer-col address {
+        font-style: normal;
+        font-size: var(--font-size-sm);
+        line-height: 1.6;
+        color: var(--sand);
+      }
+
+      .footer-col a:hover {
+        color: var(--white);
+      }
+
+      .footer-note {
+        font-size: var(--font-size-xs);
+        color: var(--warm-brown-light);
+      }
+
+      .footer-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-sm);
+        padding-top: var(--space-md);
+        border-top: 1px solid oklch(0.4 0.01 60);
+      }
+
+      .cash-badge {
+        font-family: var(--font-display), Georgia, serif;
+        font-size: var(--font-size-xs);
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.4em 1em;
+        border: 2px solid var(--sun);
+        color: var(--sun);
+        border-radius: var(--radius);
+      }
+
+      .footer-copy {
+        font-size: var(--font-size-xs);
+        color: var(--warm-brown-light);
+      }
+
+      @media (min-width: 52rem) {
+        .footer-info {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      /* Skip to content */
+      .skip-to-content {
+        position: absolute;
+        top: -100%;
+        left: var(--gutter);
+        z-index: 200;
+        padding: 0.75em 1.5em;
+        background-color: var(--ocean);
+        color: var(--white);
+        font-family: var(--font-body);
+        font-size: var(--font-size-sm);
+        font-weight: 600;
+        border-radius: var(--radius);
+        text-decoration: none;
+        transition: top 0.2s ease;
+      }
+
+      .skip-to-content:focus {
+        top: 1rem;
+      }
+
+      /* Focus visible */
+      :global(*:focus-visible) {
+        outline: 3px solid var(--ocean);
+        outline-offset: 3px;
+      }
+
+      /* Body lock when nav is open */
+      :global(body.nav-open) {
+        overflow: hidden;
+      }
+
+      /* Reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        .site-header {
+          transition: none;
+        }
+
+        .menu-bar {
+          transition: none;
+        }
+
+        .main-nav {
+          transition: none;
+        }
+
+        .nav-link::after {
+          transition: none;
+        }
+      }
+    </style>
+  </body>
+</html>
