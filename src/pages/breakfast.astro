@@ -15,51 +15,314 @@ import breakfast02 from '../assets/images/breakfast-02-full.jpg';
     </div>
   </section>
 
-  <section class="menu-display section">
+  <section class="menu-body section">
     <div class="container">
-      <div class="menu-intro">
-        <p>From the Sunrise combo to the King of the Beach, every plate is built for the kind of morning that doesn't need to rush. Griddle cakes, scramblers, frittatas, and sandwiches, all made to order.</p>
+
+      <!-- COMBOS -->
+      <div class="menu-section">
+        <h2>Beach Combos</h2>
+        <p class="menu-note">Cellone's toast or English muffin with butter and jelly. Egg whites only add $1.25.</p>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Sunrise</span><span class="item-price">$8.95</span></div>
+            <p class="item-desc">2 eggs, bacon or sausage links, home fries &amp; toast</p>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Big Surf</span><span class="item-price">$8.95</span></div>
+            <p class="item-desc">2 eggs, mild or hot Italian sausage or ham, 2 pancakes or French toast, home fries</p>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Big Beach</span><span class="item-price">$9.95</span></div>
+            <p class="item-desc">3 eggs, bacon, ham &amp; home fries, toast</p>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Tidal Wave</span><span class="item-price">$10.95</span></div>
+            <p class="item-desc">2 eggs, bacon or sausage or ham, 2 pancakes or French toast, home fries &amp; toast</p>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Wave Runner</span><span class="item-price">$10.95</span></div>
+            <p class="item-desc">2 eggs, hot or mild Italian sausage or ham, 1 steak &amp; 2 pancakes or French toast, home fries</p>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Sunny Beach</span><span class="item-price">$7.95</span></div>
+            <p class="item-desc">2 eggs, bacon or Italian rope sausage &amp; toast</p>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Little Surf</span><span class="item-price">$5.25</span></div>
+            <p class="item-desc">2 eggs, bacon or Italian rope sausage &amp; toast</p>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Baby Beach</span><span class="item-price">$4.95</span></div>
+            <p class="item-desc">1 egg, bacon or Italian rope sausage &amp; toast</p>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Light Beach</span><span class="item-price">$3.95</span></div>
+            <p class="item-desc">1 egg &amp; toast</p>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">King of the Beach</span><span class="item-price">$11.95</span></div>
+            <p class="item-desc">3 eggs, choice of 2 meats, home fries &amp; toast</p>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Day at the Beach</span><span class="item-price">$10.95</span></div>
+            <p class="item-desc">2 eggs, corned beef hash, home fries &amp; toast</p>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">The Beach Bum</span><span class="item-price">$11.95</span></div>
+            <p class="item-desc">Steak &amp; eggs, home fries &amp; toast</p>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Sand Dollar</span><span class="item-price">$3.75</span></div>
+            <p class="item-desc">2 pancakes or 2 slices of French toast, hot or mild sausage</p>
+          </div>
+        </div>
       </div>
 
-      <div class="menu-images">
-        <figure class="menu-page">
-          <Image
-            src={breakfast01}
-            alt="Beach House breakfast menu page 1: combos, griddle items, hotcake stacks, strawberry stacks, french toast, waffles, and kids corner"
-            loading="eager"
-            width={800}
-            height={1100}
-            layout="constrained"
-          />
-          <figcaption>Combos, Griddle &amp; Kids Corner</figcaption>
-        </figure>
-        <figure class="menu-page">
-          <Image
-            src={breakfast02}
-            alt="Beach House breakfast menu page 2: breakfast sandwiches, frittatas, scramblers, custom frittata builder, a la carte items, and beverages"
-            loading="lazy"
-            width={800}
-            height={1100}
-            layout="constrained"
-          />
-          <figcaption>Sandwiches, Frittatas &amp; Scramblers</figcaption>
-        </figure>
+      <!-- GRIDDLE -->
+      <div class="menu-section">
+        <h2>From the Griddle</h2>
+        <p class="menu-note">No substitutions please.</p>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Hotcake Stacks</span><span class="item-price">$6.95</span></div>
+            <p class="item-desc">3 large buttermilk pancakes. Add choice of chocolate chips, blueberries, or bananas $8.25.</p>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Strawberry Stacks</span><span class="item-price">$9.95</span></div>
+            <p class="item-desc">3 large buttermilk pancakes topped with strawberries, whipped cream &amp; powdered sugar</p>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Blueberry Only Stacks</span><span class="item-price">$8.95</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Pineapple Upside Down Cakes</span><span class="item-price">$7.75</span></div>
+            <p class="item-desc">3 large buttermilk pancakes cooked with pineapple chunks</p>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Classic French Toast</span><span class="item-price">$5.95</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Crunchy French Toast</span><span class="item-price">$8.95</span></div>
+            <p class="item-desc">3 slices of French toast stuffed with cream cheese, coated in frosted flakes</p>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Brown Sugar Cinnamon French Toast</span><span class="item-price">$8.95</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Apple Pie French Toast</span><span class="item-price">$8.95</span></div>
+            <p class="item-desc">3 slices of French toast filled with apple pie filling, topped with powdered sugar</p>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Waffle</span><span class="item-price">$5.95</span></div>
+            <p class="item-desc">Add blueberries, strawberries &amp; whipped cream $6.75</p>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Nutella Pancakes or French Toast</span><span class="item-price">$8.95</span></div>
+            <p class="item-desc">3 large buttermilk pancakes or 3 slices of French toast stuffed with Nutella, strawberries, sliced milk &amp; coconut</p>
+          </div>
+        </div>
       </div>
 
-      <div class="menu-callouts">
-        <div class="callout">
-          <h2 class="callout-heading">Beach Combos</h2>
-          <p>Named after the waves. The Sunrise, Big Surf, Tidal Wave, Wave Runner, King of the Beach. Each one comes with your choice of eggs, meat, and sides.</p>
-        </div>
-        <div class="callout">
-          <h2 class="callout-heading">Build Your Own</h2>
-          <p>Custom Frittata or Scrambler. Pick your base, add veggies, add meat, add cheese. Start at $7.25.</p>
-        </div>
-        <div class="callout">
-          <h2 class="callout-heading">From the Griddle</h2>
-          <p>Hotcake stacks, strawberry stacks, crunchy french toast, brown sugar cinnamon, apple pie french toast, and Nutella pancakes.</p>
+      <!-- BREAKFAST SANDWICHES -->
+      <div class="menu-section">
+        <h2>Breakfast Sandwiches</h2>
+        <p class="menu-note">Served with beach potatoes.</p>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Sunrise Sandwich</span><span class="item-price">$3.25</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Breakfast Quesadilla</span><span class="item-price">$11.25</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Breakfast Hoagie</span><span class="item-price">$12.25</span></div>
+          </div>
         </div>
       </div>
+
+      <!-- FRITTATAS -->
+      <div class="menu-section">
+        <h2>Frittatas</h2>
+        <p class="menu-note">Open-faced omelet served on a platter. Whites only add $1.25. Cellone's toast or sandwich bread.</p>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Omelet's Delight</span><span class="item-price">$8.25</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Ham &amp; Cheese</span><span class="item-price">$10.75</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Bacon &amp; Cheese</span><span class="item-price">$10.75</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Sausage &amp; Cheese</span><span class="item-price">$10.75</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Western</span><span class="item-price">$11.25</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Italian</span><span class="item-price">$12.25</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Greek</span><span class="item-price">$11.25</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Mushroom &amp; Cheese</span><span class="item-price">$9.25</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Sicilian</span><span class="item-price">$12.25</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Buffalo Chicken</span><span class="item-price">$12.25</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Tomato &amp; Blue Cheese</span><span class="item-price">$12.25</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Burger</span><span class="item-price">$12.25</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Corned Beef Hash</span><span class="item-price">$12.25</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Veggie</span><span class="item-price">$10.75</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCRAMBLERS -->
+      <div class="menu-section">
+        <h2>Scramblers</h2>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Bacon Scrambler</span><span class="item-price">$10.75</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Veggie Scrambler</span><span class="item-price">$10.75</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CUSTOM -->
+      <div class="menu-section highlight-section">
+        <h2>Build Your Own</h2>
+        <p class="menu-note">Custom Frittata or Scrambler. Base price $7.25.</p>
+        <div class="build-options">
+          <div class="build-col">
+            <h3>Add Veggies</h3>
+            <p class="item-desc">$0.75 each selection</p>
+          </div>
+          <div class="build-col">
+            <h3>Add Cheese</h3>
+            <p class="item-desc">$1.00 each selection</p>
+          </div>
+          <div class="build-col">
+            <h3>Add Meat</h3>
+            <p class="item-desc">$2.75 each selection</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- OATMEAL -->
+      <div class="menu-section">
+        <h2>Oatmeal</h2>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Classic Quaker Oats</span><span class="item-price">$3.95</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Fruit &amp; Cream Oats</span><span class="item-price">$5.95</span></div>
+            <p class="item-desc">With blueberries, pineapple, glazed strawberries, or apple</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- A LA CARTE -->
+      <div class="menu-section">
+        <h2>A La Carte</h2>
+        <div class="menu-grid compact">
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">1 Large Pancake</span><span class="item-price">$3.75</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">1 French Toast</span><span class="item-price">$3.75</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">English Muffin</span><span class="item-price">$1.95</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Sausage Links</span><span class="item-price">$3.75</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Bacon</span><span class="item-price">$3.75</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Ham</span><span class="item-price">$3.75</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KID'S CORNER -->
+      <div class="menu-section">
+        <h2>Kid's Corner</h2>
+        <p class="menu-note">Kids 3.0 &amp; under.</p>
+        <div class="menu-grid compact">
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Pancake Combo</span><span class="item-price">$5</span></div>
+            <p class="item-desc">3 small pancakes served with choice of bacon or sausage</p>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">French Toast Combo</span><span class="item-price">$5</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Kids Combo</span><span class="item-price">$5</span></div>
+            <p class="item-desc">1 egg, choice of bacon or sausage &amp; 1 slice of toast</p>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Waffle Combo</span><span class="item-price">$5</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BEVERAGES -->
+      <div class="menu-section">
+        <h2>Beverages</h2>
+        <div class="menu-grid compact">
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Coffee</span><span class="item-price refill">Refillable</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Hot Tea</span><span class="item-price refill">Refillable</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Soft Drinks</span><span class="item-price refill">Refillable</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">2% Milk</span><span class="item-price">$2.75</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Hot Chocolate</span><span class="item-price">$2.75</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="item-header"><span class="item-name">Juice</span><span class="item-price">$2.75</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MENU PHOTOS -->
+      <div class="menu-photos">
+        <h2>Full Menu Photos</h2>
+        <p class="menu-note">For reference, here are photos of our printed menus.</p>
+        <div class="photo-grid">
+          <figure>
+            <Image src={breakfast01} alt="Beach House printed breakfast menu, page 1" loading="lazy" width={600} height={850} layout="constrained" />
+          </figure>
+          <figure>
+            <Image src={breakfast02} alt="Beach House printed breakfast menu, page 2" loading="lazy" width={600} height={850} layout="constrained" />
+          </figure>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -79,7 +342,7 @@ import breakfast02 from '../assets/images/breakfast-02-full.jpg';
     padding: var(--space-2xl) 0 var(--space-xl);
     text-align: center;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3vw), 0 100%);
-    margin-bottom: calc(var(--space-lg) * -0.5);
+    margin-bottom: calc(var(--space-md) * -1);
   }
 
   .menu-badge {
@@ -108,79 +371,128 @@ import breakfast02 from '../assets/images/breakfast-02-full.jpg';
     color: var(--warm-brown);
   }
 
-  .menu-intro {
-    max-width: 38rem;
-    margin: 0 auto var(--space-xl);
-    text-align: center;
-    font-size: var(--font-size-lg);
-    color: var(--warm-brown);
-    line-height: 1.7;
-  }
-
-  .menu-images {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
+  /* Menu sections */
+  .menu-section {
     margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--sand-dark);
   }
 
-  .menu-page {
-    background: var(--white);
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow:
-      0 4px 30px oklch(0.25 0.015 60 / 0.1),
-      0 1px 3px oklch(0.25 0.015 60 / 0.06);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  .menu-section:last-of-type {
+    border-bottom: none;
   }
 
-  .menu-page:hover {
-    transform: translateY(-4px);
-    box-shadow:
-      0 8px 40px oklch(0.25 0.015 60 / 0.14),
-      0 2px 6px oklch(0.25 0.015 60 / 0.08);
-  }
-
-  .menu-page img {
-    width: 100%;
-    height: auto;
-  }
-
-  .menu-page figcaption {
-    padding: var(--space-sm) var(--space-md);
-    font-family: var(--font-display);
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    color: var(--warm-brown);
-    text-align: center;
-    background-color: var(--sun-pale);
-  }
-
-  .menu-callouts {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-  }
-
-  .callout {
-    padding: var(--space-md);
-    background: var(--sand);
-    border-radius: var(--radius);
-    border-left: 4px solid var(--sun);
-  }
-
-  .callout-heading {
-    font-size: var(--font-size-lg);
-    margin-bottom: 0.4em;
+  .menu-section h2 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-xs);
     color: var(--charcoal);
   }
 
-  .callout p {
-    font-size: var(--font-size-base);
-    color: var(--warm-brown);
-    line-height: 1.6;
+  .menu-note {
+    font-size: var(--font-size-sm);
+    color: var(--warm-brown-light);
+    font-style: italic;
+    margin-bottom: var(--space-md);
   }
 
+  /* Menu grid */
+  .menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .menu-item {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px dotted var(--sand-dark);
+  }
+
+  .menu-item:last-child {
+    border-bottom: none;
+  }
+
+  .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-sm);
+  }
+
+  .item-name {
+    font-family: var(--font-display);
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--charcoal);
+  }
+
+  .item-price {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--ocean);
+    white-space: nowrap;
+  }
+
+  .item-price.refill {
+    font-size: var(--font-size-xs);
+    color: var(--warm-brown-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .item-desc {
+    font-size: var(--font-size-sm);
+    color: var(--warm-brown);
+    line-height: 1.5;
+    margin-top: 0.15em;
+  }
+
+  /* Build your own */
+  .highlight-section {
+    background: var(--sun-pale);
+    padding: var(--space-md);
+    border-radius: var(--radius);
+    border-bottom: none;
+  }
+
+  .build-options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .build-col h3 {
+    font-size: var(--font-size-base);
+    margin-bottom: 0.2em;
+  }
+
+  /* Menu photos */
+  .menu-photos {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--sand-dark);
+  }
+
+  .menu-photos h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-xs);
+  }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+  }
+
+  .photo-grid figure {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 2px 20px oklch(0.25 0.015 60 / 0.08);
+  }
+
+  /* CTA */
   .menu-cta {
     background-color: var(--ocean);
     color: var(--white);
@@ -213,13 +525,22 @@ import breakfast02 from '../assets/images/breakfast-02-full.jpg';
     color: var(--charcoal);
   }
 
-  @media (min-width: 52rem) {
-    .menu-images {
+  @media (min-width: 40rem) {
+    .menu-grid {
       grid-template-columns: 1fr 1fr;
+      column-gap: var(--space-lg);
     }
 
-    .menu-callouts {
+    .menu-grid.compact {
       grid-template-columns: repeat(3, 1fr);
+    }
+
+    .build-options {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .photo-grid {
+      grid-template-columns: 1fr 1fr;
     }
   }
 </style>
