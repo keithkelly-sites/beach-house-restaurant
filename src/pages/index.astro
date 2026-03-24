@@ -372,19 +372,32 @@ import coconutJoesLogo from '../assets/images/coconut-joes-logo.jpg';
   }
 
   // Reveal-on-scroll for sections
+  // JS adds reveal-hidden class, then removes on intersection.
+  // No JS = content stays visible (opacity: 1 is the CSS default).
   const revealEls = document.querySelectorAll('.about, .menus, .banquet, .location');
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
-  );
-  revealEls.forEach((el) => revealObserver.observe(el));
+
+  if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    // Only hide sections that are below the fold
+    revealEls.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top > window.innerHeight) {
+        el.classList.add('reveal-hidden');
+      }
+    });
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove('reveal-hidden');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
+    );
+    revealEls.forEach((el) => revealObserver.observe(el));
+  }
 
   // Scroll hint fade
   const scrollHint = document.querySelector('.hero-scroll-hint');
@@ -510,13 +523,13 @@ import coconutJoesLogo from '../assets/images/coconut-joes-logo.jpg';
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    .about:not(.revealed) {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
     .about {
       transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .about.reveal-hidden {
+      opacity: 0;
+      transform: translateY(30px);
     }
   }
 
@@ -605,13 +618,13 @@ import coconutJoesLogo from '../assets/images/coconut-joes-logo.jpg';
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    .menus:not(.revealed) {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
     .menus {
       transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .menus.reveal-hidden {
+      opacity: 0;
+      transform: translateY(30px);
     }
   }
 
@@ -686,13 +699,13 @@ import coconutJoesLogo from '../assets/images/coconut-joes-logo.jpg';
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    .banquet:not(.revealed) {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
     .banquet {
       transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .banquet.reveal-hidden {
+      opacity: 0;
+      transform: translateY(30px);
     }
   }
 
@@ -831,13 +844,13 @@ import coconutJoesLogo from '../assets/images/coconut-joes-logo.jpg';
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    .location:not(.revealed) {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
     .location {
       transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .location.reveal-hidden {
+      opacity: 0;
+      transform: translateY(30px);
     }
   }
 
