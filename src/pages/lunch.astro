@@ -1,8 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-import lunch01 from '../assets/images/lunch-01-full.jpg';
-import lunch02 from '../assets/images/lunch-02-full.jpg';
 ---
 
 <Layout title="Lunch | Beach House Restaurant" description="Lunch served Monday through Saturday, 11am-1:30pm. Sandwiches, burgers, wraps, quesadillas, and more. Cash only.">
@@ -15,51 +12,153 @@ import lunch02 from '../assets/images/lunch-02-full.jpg';
     </div>
   </section>
 
-  <section class="menu-display section">
+  <section class="menu-body section">
     <div class="container">
-      <div class="menu-intro">
-        <p>Salads, reubens, gourmet burgers, wraps, quesadillas, hoagies, and a sandwich board that goes deep. Everything made fresh, nothing phoned in.</p>
+
+      <div class="menu-section"><h2>Salads</h2>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="item-header"><span class="item-name">House Salad</span><span class="item-price">$4.95</span></div><p class="item-desc">Tomato, onion, green pepper &amp; cucumber</p></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Grilled Chicken Salad</span><span class="item-price">$9.75</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Grilled Steak Salad</span><span class="item-price">$14.25</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Breaded Chicken Tender Salad</span><span class="item-price">$10.25</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Net Chicken Breast Salad</span><span class="item-price">$13.25</span></div><p class="item-desc">All white meat grilled chicken breast</p></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Trio Salad</span><span class="item-price">$13.25</span></div><p class="item-desc">Chicken salad, tuna salad &amp; egg salad on a bed of lettuce</p></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Antipasto Salad</span><span class="item-price">$9.25</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">House Salad with a Scoop</span><span class="item-price">$8.75</span></div><p class="item-desc">Choice of chicken, tuna, or egg salad</p></div>
+        </div>
       </div>
 
-      <div class="menu-images">
-        <figure class="menu-page">
-          <Image
-            src={lunch01}
-            alt="Beach House lunch menu page 1: salads, combos and soup, quesadillas, wraps, hoagies, and hot sandwiches"
-            loading="eager"
-            width={800}
-            height={1100}
-            layout="constrained"
-          />
-          <figcaption>Salads, Quesadillas, Wraps &amp; Hoagies</figcaption>
-        </figure>
-        <figure class="menu-page">
-          <Image
-            src={lunch02}
-            alt="Beach House lunch menu page 2: sandwich board, grilled cheese choices, club sandwiches, reubens, chicken sandwiches, specialty sandwiches, gourmet burgers, baskets, and kids menu"
-            loading="lazy"
-            width={800}
-            height={1100}
-            layout="constrained"
-          />
-          <figcaption>Sandwiches, Burgers &amp; Baskets</figcaption>
-        </figure>
+      <div class="menu-section"><h2>Combos &amp; Soup</h2>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="item-header"><span class="item-name">1/2 Sandwich with Soup</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Soup &amp; House Salad</span><span class="item-price">$6.25</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Soup of the Day</span><span class="item-price">$4.75</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Chili</span><span class="item-price">$4.75</span></div></div>
+        </div>
       </div>
 
-      <div class="menu-callouts">
-        <div class="callout">
-          <h2 class="callout-heading">Sandwich Board</h2>
-          <p>Eight grilled cheese variations. Club sandwiches stacked high. Four different reubens including the Beach Reuben with turkey, cranberry, and Swiss.</p>
-        </div>
-        <div class="callout">
-          <h2 class="callout-heading">Gourmet Burgers</h2>
-          <p>The Blu Burger with bacon and bleu cheese. Kitchen Sink Burger loaded with everything. Greek Burger with feta and tzatziki. All fresh ground.</p>
-        </div>
-        <div class="callout">
-          <h2 class="callout-heading">Fresh Wraps</h2>
-          <p>Homemade salad wrap, chicken bacon ranch, steak fajita, turkey, chicken BLT, pepper jack roast beef, and the Greek chicken wrap.</p>
+      <div class="menu-section"><h2>Quesadillas</h2>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="item-header"><span class="item-name">Double Cheese</span><span class="item-price">$7.75</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Chicken &amp; Cheese</span><span class="item-price">$9.75</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Steak &amp; Cheese</span><span class="item-price">$14.75</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Cheeseburger</span><span class="item-price">$9.75</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Turkey &amp; Cheese</span><span class="item-price">$9.75</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Capicola &amp; Cheese</span><span class="item-price">$9.75</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">4 Cheese</span><span class="item-price">$8.75</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Veggie &amp; Cheese</span><span class="item-price">$8.25</span></div></div>
         </div>
       </div>
+
+      <div class="menu-section"><h2>Wraps</h2>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="item-header"><span class="item-name">Homemade Salad Wrap</span><span class="item-price">$8.75</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Chicken Wrap (Grilled)</span><span class="item-price">$8.75</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Chicken Bacon Ranch</span><span class="item-price">$9.75</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Steak Fajita Wrap</span><span class="item-price">$9.25</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Turkey Wrap</span><span class="item-price">$8.75</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Chicken BLT Wrap</span><span class="item-price">$8.75</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Pepper Jack Roast Beef Wrap</span><span class="item-price">$9.25</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Greek Chicken Wrap</span><span class="item-price">$9.75</span></div></div>
+        </div>
+      </div>
+
+      <div class="menu-section"><h2>Sandwich Board</h2>
+        <h3>Grilled Cheese</h3>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="item-header"><span class="item-name">Classic Grilled Cheese</span><span class="item-price">$5.75</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Deli Grilled Cheese</span><span class="item-price">$8.50</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Breakfast Grilled Cheese</span><span class="item-price">$8.50</span></div><p class="item-desc">Fried eggs, grilled onion &amp; American cheese on Italian bread</p></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Greek Grilled Cheese</span><span class="item-price">$8.75</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Grilled Cheese &amp; Veggies</span><span class="item-price">$8.75</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Smokin Grilled Cheese</span><span class="item-price">$8.75</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Pesto Grilled Cheese</span><span class="item-price">$8.75</span></div></div>
+        </div>
+        <h3>Club Sandwiches</h3>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="item-header"><span class="item-name">Turkey Club</span><span class="item-price">$10.25</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Ham &amp; Egg Club</span><span class="item-price">$9.50</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Capicola &amp; Egg Club</span><span class="item-price">$9.60</span></div></div>
+        </div>
+        <h3>Reubens</h3>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="item-header"><span class="item-name">Grilled Reuben</span><span class="item-price">$10.25</span></div><p class="item-desc">Sliced corned beef, sauerkraut, thousand island &amp; melted Swiss</p></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Black Russian</span><span class="item-price">$10.25</span></div><p class="item-desc">Sliced roast beef, fresh coleslaw, Russian dressing on rye</p></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Turkey Reuben</span><span class="item-price">$10.25</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Beach Reuben</span><span class="item-price">$10.25</span></div><p class="item-desc">Turkey, cranberry, thousand island &amp; Swiss on rye</p></div>
+        </div>
+      </div>
+
+      <div class="menu-section"><h2>Chicken Sandwiches</h2>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="item-header"><span class="item-name">Grilled Chicken Breast</span><span class="item-price">$8.25</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Breaded Chicken Breast</span><span class="item-price">$8.25</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Chicken Pesto</span><span class="item-price">$9.75</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Chicken Bacon Ranch</span><span class="item-price">$9.75</span></div></div>
+        </div>
+      </div>
+
+      <div class="menu-section"><h2>Specialty Sandwiches</h2>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="item-header"><span class="item-name">BLT</span><span class="item-price">$7.75</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Italian Finley</span><span class="item-price">$9.75</span></div><p class="item-desc">Capicola, coleslaw, fries &amp; pepper jack cheese</p></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Big Finley</span><span class="item-price">$9.75</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">French Dip</span><span class="item-price">$9.75</span></div><p class="item-desc">Thinly sliced roast beef, melted provolone on a hoagie with au jus</p></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Fish Sandwich</span><span class="item-price">$9.75</span></div><p class="item-desc">Breaded Atlantic cod, deep fried on a kaiser bun</p></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Beef &amp; Cheddar</span><span class="item-price">$9.25</span></div><p class="item-desc">Thinly sliced roast beef, horseradish sauce &amp; cheddar on toasted kaiser</p></div>
+        </div>
+      </div>
+
+      <div class="menu-section"><h2>Gourmet Burgers</h2>
+        <p class="menu-note">1/3 lb USDA ground Angus beef on a kaiser bun with lettuce, tomato, onion &amp; pickle.</p>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="item-header"><span class="item-name">Classic Burger</span><span class="item-price">$8.50</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Cheeseburger</span><span class="item-price">$9.25</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Blu Burger</span><span class="item-price">$10.25</span></div><p class="item-desc">Bacon, crumbled bleu cheese, bold steak sauce, crispy onion straws</p></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Sauteed Mushroom &amp; Onion</span><span class="item-price">$10.25</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Breakfast Burger</span><span class="item-price">$10.25</span></div><p class="item-desc">Fried egg, bacon &amp; your choice of cheese</p></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Kitchen Sink Burger</span><span class="item-price">$11.25</span></div><p class="item-desc">Bacon, ham, sausage, fried egg, fries and choice of cheese</p></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Greek Burger</span><span class="item-price">$10.25</span></div><p class="item-desc">Feta, tzatziki, tomato, onion &amp; cucumber</p></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Smoking Hot Burger</span><span class="item-price">$10.25</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Reuben Burger</span><span class="item-price">$10.25</span></div></div>
+        </div>
+      </div>
+
+      <div class="menu-section"><h2>Hoagies</h2>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="item-header"><span class="item-name">Sicilian</span><span class="item-price">$9.25</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Steak</span><span class="item-price">$9.25</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Chicken Parm</span><span class="item-price">$9.25</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Chicken Ranch</span><span class="item-price">$9.25</span></div></div>
+        </div>
+      </div>
+
+      <div class="menu-section"><h2>Hot Sandwiches</h2>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="item-header"><span class="item-name">Hot Turkey Sandwich</span><span class="item-price">$9.75</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Open Face Angus</span><span class="item-price">$9.75</span></div></div>
+        </div>
+      </div>
+
+      <div class="menu-section"><h2>Baskets</h2>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="item-header"><span class="item-name">Shrimp Basket</span><span class="item-price">$9.25</span></div></div>
+          <div class="menu-item"><div class="item-header"><span class="item-name">Chicken Tender Basket</span><span class="item-price">$9.25</span></div></div>
+        </div>
+      </div>
+
+      <div class="menu-section"><h2>Kids Corner</h2>
+        <p class="menu-note">All kids meals $5.25</p>
+        <div class="menu-grid compact">
+          <div class="menu-item"><span class="item-name">Grilled Cheese</span></div>
+          <div class="menu-item"><span class="item-name">Chicken Tenders</span></div>
+          <div class="menu-item"><span class="item-name">Mashed Potatoes</span></div>
+          <div class="menu-item"><span class="item-name">Sweet Potato Fries</span></div>
+          <div class="menu-item"><span class="item-name">French Fries</span></div>
+          <div class="menu-item"><span class="item-name">Onion Rings</span></div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -79,7 +178,7 @@ import lunch02 from '../assets/images/lunch-02-full.jpg';
     padding: var(--space-2xl) 0 var(--space-xl);
     text-align: center;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3vw), 0 100%);
-    margin-bottom: calc(var(--space-lg) * -0.5);
+    margin-bottom: calc(var(--space-md) * -1);
   }
 
   .menu-badge {
@@ -108,77 +207,74 @@ import lunch02 from '../assets/images/lunch-02-full.jpg';
     color: var(--ocean-light);
   }
 
-  .menu-intro {
-    max-width: 38rem;
-    margin: 0 auto var(--space-xl);
-    text-align: center;
-    font-size: var(--font-size-lg);
-    color: var(--warm-brown);
-    line-height: 1.7;
-  }
-
-  .menu-images {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
+  .menu-section {
     margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--sand-dark);
   }
 
-  .menu-page {
-    background: var(--white);
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow:
-      0 4px 30px oklch(0.25 0.015 60 / 0.1),
-      0 1px 3px oklch(0.25 0.015 60 / 0.06);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-  }
+  .menu-section:last-of-type { border-bottom: none; }
 
-  .menu-page:hover {
-    transform: translateY(-4px);
-    box-shadow:
-      0 8px 40px oklch(0.25 0.015 60 / 0.14),
-      0 2px 6px oklch(0.25 0.015 60 / 0.08);
-  }
-
-  .menu-page img {
-    width: 100%;
-    height: auto;
-  }
-
-  .menu-page figcaption {
-    padding: var(--space-sm) var(--space-md);
-    font-family: var(--font-display);
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    color: var(--warm-brown);
-    text-align: center;
-    background-color: var(--ocean-faded);
-  }
-
-  .menu-callouts {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-  }
-
-  .callout {
-    padding: var(--space-md);
-    background: var(--sand);
-    border-radius: var(--radius);
-    border-left: 4px solid var(--ocean);
-  }
-
-  .callout-heading {
-    font-size: var(--font-size-lg);
-    margin-bottom: 0.4em;
+  .menu-section h2 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-xs);
     color: var(--charcoal);
   }
 
-  .callout p {
+  .menu-section h3 {
+    font-size: var(--font-size-lg);
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-xs);
+    color: var(--ocean);
+  }
+
+  .menu-note {
+    font-size: var(--font-size-sm);
+    color: var(--warm-brown-light);
+    font-style: italic;
+    margin-bottom: var(--space-md);
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .menu-item {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px dotted var(--sand-dark);
+  }
+
+  .menu-item:last-child { border-bottom: none; }
+
+  .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-sm);
+  }
+
+  .item-name {
+    font-family: var(--font-display);
     font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--charcoal);
+  }
+
+  .item-price {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--ocean);
+    white-space: nowrap;
+  }
+
+  .item-desc {
+    font-size: var(--font-size-sm);
     color: var(--warm-brown);
-    line-height: 1.6;
+    line-height: 1.5;
+    margin-top: 0.15em;
   }
 
   .menu-cta {
@@ -213,12 +309,13 @@ import lunch02 from '../assets/images/lunch-02-full.jpg';
     color: var(--white);
   }
 
-  @media (min-width: 52rem) {
-    .menu-images {
+  @media (min-width: 40rem) {
+    .menu-grid {
       grid-template-columns: 1fr 1fr;
+      column-gap: var(--space-lg);
     }
 
-    .menu-callouts {
+    .menu-grid.compact {
       grid-template-columns: repeat(3, 1fr);
     }
   }

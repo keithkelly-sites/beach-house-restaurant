@@ -1,8 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-import breakfast01 from '../assets/images/breakfast-01-full.jpg';
-import breakfast02 from '../assets/images/breakfast-02-full.jpg';
 ---
 
 <Layout title="Breakfast | Beach House Restaurant" description="Breakfast served daily 7am-1:30pm at Beach House Restaurant. Classic diner favorites with beach-themed combos. Cash only.">
@@ -309,20 +306,6 @@ import breakfast02 from '../assets/images/breakfast-02-full.jpg';
         </div>
       </div>
 
-      <!-- MENU PHOTOS -->
-      <div class="menu-photos">
-        <h2>Full Menu Photos</h2>
-        <p class="menu-note">For reference, here are photos of our printed menus.</p>
-        <div class="photo-grid">
-          <figure>
-            <Image src={breakfast01} alt="Beach House printed breakfast menu, page 1" loading="lazy" width={600} height={850} layout="constrained" />
-          </figure>
-          <figure>
-            <Image src={breakfast02} alt="Beach House printed breakfast menu, page 2" loading="lazy" width={600} height={850} layout="constrained" />
-          </figure>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -464,32 +447,6 @@ import breakfast02 from '../assets/images/breakfast-02-full.jpg';
   .build-col h3 {
     font-size: var(--font-size-base);
     margin-bottom: 0.2em;
-  }
-
-  /* Menu photos */
-  .menu-photos {
-    margin-top: var(--space-xl);
-    padding-top: var(--space-lg);
-    border-top: 1px solid var(--sand-dark);
-  }
-
-  .menu-photos h2 {
-    font-size: var(--font-size-xl);
-    margin-bottom: var(--space-xs);
-  }
-
-  .photo-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-    margin-top: var(--space-md);
-  }
-
-  .photo-grid figure {
-    background: var(--white);
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: 0 2px 20px oklch(0.25 0.015 60 / 0.08);
   }
 
   /* CTA */
