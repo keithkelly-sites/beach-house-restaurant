@@ -23,7 +23,7 @@ import { Image } from 'astro:assets';
 import heroImg from '../assets/images/home-hero-full.jpg';
 import coconutJoes02 from '../assets/images/coconut-joes-02.jpg';
 import coconutJoesLogo from '../assets/images/coconut-joes-logo.jpg';
-import mapImg from '../assets/images/map-osm.png';
+import LocationMap from '../components/LocationMap.astro';
 ---
 
 <Layout title="Beach House Restaurant | Your Favorite Family Diner | Finleyville, PA" description="Breakfast and lunch served daily in Finleyville, PA. Family diner with beach-themed menu, tiki bar, and banquet hall. Cash only. Open 7am-1:30pm.">
@@ -230,28 +230,16 @@ import mapImg from '../assets/images/map-osm.png';
 
       <div class="location-layout">
         <div class="map-card">
+          <LocationMap />
           <a
             href="https://www.google.com/maps/dir/?api=1&destination=6285+Route+88+Finleyville+PA+15332"
             target="_blank"
             rel="noopener noreferrer"
             class="map-link"
-            aria-label="Get directions to Beach House Restaurant on Google Maps"
           >
-            <div class="map-img-wrap">
-              <Image
-                src={mapImg}
-                alt="Map showing Beach House Restaurant location on Route 88 in Finleyville, PA"
-                class="map-image"
-                width={800}
-                height={500}
-                loading="lazy"
-                layout="constrained"
-              />
-              <span class="map-attribution">&copy; OpenStreetMap contributors</span>
-            </div>
             <div class="map-bar">
               <span class="map-bar-name">Beach House Restaurant</span>
-              <span class="map-bar-cta">Open in Google Maps &rarr;</span>
+              <span class="map-bar-cta">Get directions &rarr;</span>
             </div>
           </a>
         </div>
@@ -754,29 +742,6 @@ import mapImg from '../assets/images/map-osm.png';
   .map-link {
     display: block;
     text-decoration: none;
-  }
-
-  .map-img-wrap {
-    overflow: hidden;
-    position: relative;
-  }
-
-  .map-image {
-    display: block;
-    width: 100%;
-    height: auto;
-    filter: sepia(0.25) saturate(0.7) contrast(1.05) brightness(1.02);
-  }
-
-  .map-attribution {
-    position: absolute;
-    bottom: 6px;
-    right: 8px;
-    font-size: 9px;
-    color: oklch(0.5 0.01 60);
-    background: oklch(0.96 0.01 80 / 0.8);
-    padding: 1px 4px;
-    border-radius: 2px;
   }
 
   .map-bar {

@@ -1,0 +1,152 @@
+---
+/*
+  MapLibre GL JS map with Protomaps vector tiles.
+  Custom color palette matching the Beach House site aesthetic.
+  Free tiles via Protomaps CDN — no API key needed.
+*/
+const pinSvg = `<svg width="30" height="40" viewBox="0 0 30 40" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="15" cy="37" rx="6" ry="3" fill="rgba(0,0,0,0.12)"/><path d="M15 0C8.4 0 3 5.4 3 12c0 9 12 25 12 25s12-16 12-25C27 5.4 21.6 0 15 0z" fill="#3d7a9e"/><circle cx="15" cy="12" r="5" fill="white"/></svg>`;
+---
+
+<div class="map-container" id="location-map" data-pin-svg={pinSvg}></div>
+
+<script>
+  async function initMap() {
+    const loadScript = (src: string) => new Promise<void>((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = src;
+      s.crossOrigin = 'anonymous';
+      s.onload = () => resolve();
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css';
+    document.head.appendChild(link);
+
+    await loadScript('https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js');
+    await loadScript('https://unpkg.com/pmtiles@4/dist/pmtiles.js');
+    await loadScript('https://unpkg.com/@protomaps/basemaps@5/dist/basemaps.js');
+
+    const ml = (window as any).maplibregl;
+    const pm = (window as any).pmtiles;
+    const bm = (window as any).basemaps;
+
+    const protocol = new pm.Protocol();
+    ml.addProtocol('pmtiles', protocol.tile);
+
+    const flavor = {
+      ...bm.namedFlavor('light'),
+      background: '#f2ebe0',
+      earth: '#ece4d8',
+      water: '#c3d5dc',
+      glacier: '#d6e3e8',
+      farmland: '#e8e1d4',
+      wood_a: '#ddd8cb',
+      wood_b: '#d8d2c5',
+      scrub_a: '#ddd8cb',
+      scrub_b: '#d8d2c5',
+      park_a: '#ddd9cc',
+      park_b: '#d9d5c8',
+      grassland: '#e2ddd0',
+      sand: '#ece4d4',
+      buildings: '#ddd6ca',
+      urban_area: '#e6dfcf',
+      highway: '#c8a96e',
+      major: '#d4c4a0',
+      minor: '#ddd6ca',
+      other: '#e0d9cd',
+      pedestrian: '#e0d9cd',
+      pier: '#ddd6ca',
+      bridges_highway: '#c8a96e',
+      bridges_major: '#d4c4a0',
+      bridges_other: '#ddd6ca',
+      tunnel_highway: '#d4c09e',
+      tunnel_highway_casing: '#c8b890',
+      tunnel_major: '#ddd6ca',
+      tunnel_major_casing: '#d4cec2',
+      tunnel_minor: '#e0d9cd',
+      tunnel_minor_casing: '#ddd6ca',
+      tunnel_other: '#e0d9cd',
+      tunnel_other_casing: '#ddd6ca',
+      tunnel_link: '#ddd6ca',
+      tunnel_link_casing: '#d4cec2',
+      roads_label_major: '#6b5d4d',
+      roads_label_major_halo: '#f2ebe0',
+      roads_label_minor: '#8a7d6d',
+      roads_label_minor_halo: '#f2ebe0',
+      city_label: '#4a3f33',
+      city_label_halo: '#f2ebe0',
+      state_label: '#8a7d6d',
+      state_label_halo: '#f2ebe0',
+      subplace_label: '#6b5d4d',
+      subplace_label_halo: '#f2ebe0',
+      address_label: '#8a7d6d',
+      address_label_halo: '#f2ebe0',
+      country_label: '#4a3f33',
+      ocean_label: '#7a9aa8',
+      boundaries: '#c8bca8',
+    };
+
+    const map = new ml.Map({
+      container: 'location-map',
+      zoom: 14.5,
+      center: [-80.0209, 40.2714],
+      style: {
+        version: 8,
+        glyphs: 'https://protomaps.github.io/basemaps-assets/fonts/{fontstack}/{range}.pbf',
+        sprite: 'https://protomaps.github.io/basemaps-assets/sprites/v4/light',
+        sources: {
+          protomaps: {
+            type: 'vector',
+            url: 'pmtiles://https://build.protomaps.com/20250322.pmtiles',
+            attribution: '\u00a9 <a href="https://openstreetmap.org">OpenStreetMap</a>'
+          }
+        },
+        layers: bm.layers('protomaps', flavor, { lang: 'en' })
+      },
+      interactive: false,
+      attributionControl: true,
+    });
+
+    const mapEl = document.getElementById('location-map');
+    const svgMarkup = mapEl?.dataset.pinSvg || '';
+    const pinEl = document.createElement('div');
+    pinEl.innerHTML = svgMarkup;
+
+    new ml.Marker({ element: pinEl, anchor: 'bottom' })
+      .setLngLat([-80.0209, 40.2714])
+      .addTo(map);
+  }
+
+  const mapEl = document.getElementById('location-map');
+  if (mapEl) {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        observer.disconnect();
+        initMap();
+      }
+    }, { rootMargin: '200px' });
+    observer.observe(mapEl);
+  }
+</script>
+
+<style>
+  .map-container {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background-color: var(--sand);
+  }
+
+  .map-container :global(.maplibregl-ctrl-attrib) {
+    font-size: 9px;
+    background: oklch(0.96 0.01 80 / 0.8);
+  }
+
+  .map-container :global(.maplibregl-ctrl-attrib a) {
+    color: var(--warm-brown-light);
+  }
+</style>
