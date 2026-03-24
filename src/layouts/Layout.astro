@@ -265,19 +265,23 @@ const navLinks = [
         transform: translateY(-7px) rotate(-45deg);
       }
 
-      /* Navigation */
+      /* Navigation — mobile overlay */
       .main-nav {
-        position: fixed;
-        inset: 0;
-        background-color: var(--cream);
         display: none;
-        align-items: center;
-        justify-content: center;
-        z-index: 100;
       }
 
       .main-nav.is-open {
         display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        background-color: var(--cream);
+        align-items: center;
+        justify-content: center;
+        z-index: 99;
       }
 
       .nav-list {
@@ -476,6 +480,17 @@ const navLinks = [
       :global(*:focus-visible) {
         outline: 3px solid var(--ocean);
         outline-offset: 3px;
+      }
+
+      /* When nav is open, fix header to viewport above the overlay */
+      :global(body.nav-open) .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 101;
+        background-color: var(--cream);
+        box-shadow: none;
       }
 
       /* Body lock when nav is open */
