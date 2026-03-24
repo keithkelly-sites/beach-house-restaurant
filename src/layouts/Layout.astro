@@ -141,43 +141,62 @@ const navLinks = [
     </footer>
 
     <script>
-      const toggle = document.querySelector('.menu-toggle');
-      const nav = document.querySelector('.main-nav');
-      const header = document.getElementById('site-header');
+      // Re-run on every page navigation (ClientRouter view transitions)
+      function initHeader() {
+        const toggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.main-nav');
+        const header = document.getElementById('site-header');
 
-      if (toggle && nav) {
-        toggle.addEventListener('click', () => {
-          const expanded = toggle.getAttribute('aria-expanded') === 'true';
-          toggle.setAttribute('aria-expanded', String(!expanded));
-          nav.classList.toggle('is-open');
-          document.body.classList.toggle('nav-open');
-        });
+        // Reset mobile menu state on navigation
+        if (toggle && nav) {
+          toggle.setAttribute('aria-expanded', 'false');
+          nav.classList.remove('is-open');
+          document.body.classList.remove('nav-open');
 
-        // Close on link click
-        nav.querySelectorAll('.nav-link').forEach(link => {
-          link.addEventListener('click', () => {
-            toggle.setAttribute('aria-expanded', 'false');
-            nav.classList.remove('is-open');
-            document.body.classList.remove('nav-open');
+          // Remove old listeners by cloning
+          const newToggle = toggle.cloneNode(true);
+          toggle.parentNode?.replaceChild(newToggle, toggle);
+
+          newToggle.addEventListener('click', () => {
+            const expanded = newToggle.getAttribute('aria-expanded') === 'true';
+            newToggle.setAttribute('aria-expanded', String(!expanded));
+            nav.classList.toggle('is-open');
+            document.body.classList.toggle('nav-open');
           });
-        });
+
+          nav.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+              newToggle.setAttribute('aria-expanded', 'false');
+              nav.classList.remove('is-open');
+              document.body.classList.remove('nav-open');
+            });
+          });
+        }
+
+        // Sticky header — clean up old sentinel, create new one
+        if (header) {
+          header.classList.remove('scrolled');
+          document.querySelectorAll('[data-scroll-sentinel]').forEach(el => el.remove());
+
+          const sentinel = document.createElement('div');
+          sentinel.setAttribute('data-scroll-sentinel', '');
+          sentinel.style.height = '1px';
+          sentinel.style.position = 'absolute';
+          sentinel.style.top = '0';
+          document.body.prepend(sentinel);
+
+          const observer = new IntersectionObserver(
+            ([entry]) => {
+              header.classList.toggle('scrolled', !entry.isIntersecting);
+            },
+            { threshold: 0, rootMargin: '-1px 0px 0px 0px' }
+          );
+          observer.observe(sentinel);
+        }
       }
 
-      // Sticky header background on scroll
-      if (header) {
-        const observer = new IntersectionObserver(
-          ([entry]) => {
-            header.classList.toggle('scrolled', !entry.isIntersecting);
-          },
-          { threshold: 0, rootMargin: '-1px 0px 0px 0px' }
-        );
-        const sentinel = document.createElement('div');
-        sentinel.style.height = '1px';
-        sentinel.style.position = 'absolute';
-        sentinel.style.top = '0';
-        document.body.prepend(sentinel);
-        observer.observe(sentinel);
-      }
+      // Run on initial load and after every view transition
+      document.addEventListener('astro:page-load', initHeader);
     </script>
 
     <style>
