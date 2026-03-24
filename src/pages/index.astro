@@ -23,7 +23,7 @@ import { Image } from 'astro:assets';
 import heroImg from '../assets/images/home-hero-full.jpg';
 import coconutJoes02 from '../assets/images/coconut-joes-02.jpg';
 import coconutJoesLogo from '../assets/images/coconut-joes-logo.jpg';
-import LocationMap from '../components/LocationMap.astro';
+import mapImg from '../assets/images/map.png';
 ---
 
 <Layout title="Beach House Restaurant | Your Favorite Family Diner | Finleyville, PA" description="Breakfast and lunch served daily in Finleyville, PA. Family diner with beach-themed menu, tiki bar, and banquet hall. Cash only. Open 7am-1:30pm.">
@@ -230,13 +230,22 @@ import LocationMap from '../components/LocationMap.astro';
 
       <div class="location-layout">
         <div class="map-card">
-          <LocationMap />
           <a
             href="https://www.google.com/maps/dir/?api=1&destination=6285+Route+88+Finleyville+PA+15332"
             target="_blank"
             rel="noopener noreferrer"
             class="map-link"
+            aria-label="Get directions to Beach House Restaurant on Google Maps"
           >
+            <Image
+              src={mapImg}
+              alt="Map showing Beach House Restaurant location on Route 88 in Finleyville, PA"
+              class="map-image"
+              width={800}
+              height={500}
+              loading="lazy"
+              layout="constrained"
+            />
             <div class="map-bar">
               <span class="map-bar-name">Beach House Restaurant</span>
               <span class="map-bar-cta">Get directions &rarr;</span>
@@ -742,6 +751,13 @@ import LocationMap from '../components/LocationMap.astro';
   .map-link {
     display: block;
     text-decoration: none;
+  }
+
+  .map-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius) var(--radius) 0 0;
   }
 
   .map-bar {
