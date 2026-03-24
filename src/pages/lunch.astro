@@ -4,15 +4,18 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Lunch | Beach House Restaurant" description="Lunch served Monday through Saturday, 11am-1:30pm. Sandwiches, burgers, wraps, quesadillas, and more. Cash only.">
 
-  <section class="menu-hero grain">
-    <div class="menu-hero-inner container">
-      <span class="menu-badge">Monday &ndash; Saturday</span>
+  <section class="page-hero">
+    <div class="container">
+      <span class="hero-badge">Monday &ndash; Saturday</span>
       <h1>Lunch</h1>
-      <p class="menu-subtitle">11am &ndash; 1:30pm &middot; Cash Only</p>
+      <p class="hero-sub">11am &ndash; 1:30pm &middot; Cash Only</p>
     </div>
+    <svg class="hero-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="var(--cream)" />
+    </svg>
   </section>
 
-  <section class="menu-body section">
+  <section class="page-body">
     <div class="container">
 
       <div class="menu-section"><h2>Salads</h2>
@@ -162,9 +165,9 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <section class="menu-cta grain">
+  <section class="page-cta">
     <div class="container text-center">
-      <p class="cta-text">One mile past Trax Farms on Route 88.</p>
+      <p class="cta-heading">One mile past Trax Farms on Route 88.</p>
       <p class="cta-sub">Lunch starts at 11am, Monday through Saturday.</p>
       <a href="tel:+17243487022" class="btn btn-primary">Call 724-348-7022</a>
     </div>
@@ -173,38 +176,8 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
-  .menu-hero {
-    background-color: var(--ocean);
-    padding: var(--space-2xl) 0 var(--space-xl);
-    text-align: center;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3vw), 0 100%);
-    margin-bottom: calc(var(--space-md) * -1);
-  }
-
-  .menu-badge {
-    display: inline-block;
-    font-family: var(--font-body);
-    font-size: var(--font-size-xs);
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--ocean-faded);
-    margin-bottom: var(--space-sm);
-  }
-
-  .menu-hero h1 {
-    font-size: var(--font-size-hero);
-    font-weight: 900;
-    color: var(--white);
-    letter-spacing: -0.03em;
-    margin-bottom: 0.1em;
-  }
-
-  .menu-subtitle {
-    font-family: var(--font-display);
-    font-size: var(--font-size-lg);
-    font-style: italic;
-    color: var(--ocean-light);
+  :global(.site-footer) {
+    --footer-wave-fill: var(--ocean);
   }
 
   .menu-section {
@@ -275,38 +248,6 @@ import Layout from '../layouts/Layout.astro';
     color: var(--warm-brown);
     line-height: 1.5;
     margin-top: 0.15em;
-  }
-
-  .menu-cta {
-    background-color: var(--sun);
-    color: var(--charcoal);
-    padding: var(--space-xl) 0;
-    clip-path: polygon(0 3vw, 100% 0, 100% 100%, 0 100%);
-    margin-top: var(--space-lg);
-  }
-
-  .cta-text {
-    font-family: var(--font-display);
-    font-size: var(--font-size-xl);
-    font-weight: 700;
-    color: var(--charcoal);
-    margin-bottom: 0.3em;
-  }
-
-  .cta-sub {
-    font-size: var(--font-size-base);
-    color: var(--warm-brown);
-    margin-bottom: var(--space-md);
-  }
-
-  .menu-cta .btn-primary {
-    background-color: var(--charcoal);
-    color: var(--sun);
-  }
-
-  .menu-cta .btn-primary:hover {
-    background-color: var(--ocean);
-    color: var(--white);
   }
 
   @media (min-width: 40rem) {

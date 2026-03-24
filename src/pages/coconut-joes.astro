@@ -1,44 +1,29 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import cjPatio from '../assets/images/coconut-joes-01.jpg';
 import cjBikeNight from '../assets/images/coconut-joes-02.jpg';
 import cjLogo from '../assets/images/coconut-joes-logo.jpg';
 ---
 
 <Layout title="Coconut Joe's Tiki Bar | Beach House Restaurant" description="Coconut Joe's Tiki Bar at Beach House Restaurant. Bike Night Thursdays, Car Cruise Fridays, Live Music Sundays. Outdoor patio bar in Finleyville, PA.">
 
-  <section class="tiki-hero grain">
-    <div class="tiki-hero-bg">
-      <Image
-        src={cjPatio}
-        alt="Coconut Joe's Tiki Bar outdoor patio with colorful umbrellas and string lights"
-        class="hero-img"
-        loading="eager"
-        width={1200}
-        height={800}
-        layout="constrained"
-      />
-      <div class="hero-overlay"></div>
-    </div>
-    <div class="container hero-content">
+  <section class="page-hero">
+    <div class="container">
       <Image
         src={cjLogo}
         alt="Coconut Joe's Tiki Bar logo"
         class="tiki-logo"
-        width={120}
-        height={120}
+        width={80}
+        height={80}
         loading="eager"
         layout="constrained"
       />
-      <h1>Coconut Joe's<br />Tiki Bar</h1>
-      <p class="hero-tagline">The outdoor bar at Beach House Restaurant</p>
+      <h1>Coconut Joe's Tiki Bar</h1>
+      <p class="hero-sub">The outdoor bar at Beach House Restaurant</p>
     </div>
-    <div class="hero-wave">
-      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,30 C480,80 960,0 1440,50 L1440,80 L0,80 Z" fill="var(--cream)" />
-      </svg>
-    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="var(--cream)" />
+    </svg>
   </section>
 
   <section class="events section">
@@ -90,54 +75,19 @@ import cjLogo from '../assets/images/coconut-joes-logo.jpg';
     </div>
   </section>
 
-  <section class="tiki-cta">
+  <section class="page-cta">
     <div class="container text-center">
-      <h2>Find us on Route 88</h2>
+      <p class="cta-heading">Find us on Route 88</p>
       <p class="cta-sub">One mile past Trax Farms, Finleyville, PA</p>
-      <a href="tel:+17243487022" class="btn btn-outline">Call 724-348-7022</a>
+      <a href="tel:+17243487022" class="btn btn-primary">Call 724-348-7022</a>
     </div>
   </section>
 
 </Layout>
 
 <style>
-  /* Hero */
-  .tiki-hero {
-    position: relative;
-    min-height: 80vh;
-    display: flex;
-    align-items: flex-end;
-    overflow: hidden;
-  }
-
-  .tiki-hero-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-
-  .hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 30%;
-  }
-
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to top,
-      oklch(0.15 0.02 60 / 0.95) 0%,
-      oklch(0.15 0.02 60 / 0.6) 40%,
-      oklch(0.15 0.02 60 / 0.2) 100%
-    );
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 3;
-    padding-bottom: var(--space-2xl);
+  :global(.site-footer) {
+    --footer-wave-fill: var(--ocean);
   }
 
   .tiki-logo {
@@ -145,38 +95,8 @@ import cjLogo from '../assets/images/coconut-joes-logo.jpg';
     height: 80px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--sun);
-    margin-bottom: var(--space-md);
-  }
-
-  .tiki-hero h1 {
-    font-size: var(--font-size-3xl);
-    font-weight: 900;
-    color: var(--white);
-    letter-spacing: -0.02em;
-    line-height: 1.05;
-    margin-bottom: var(--space-sm);
-  }
-
-  .hero-tagline {
-    font-family: var(--font-display);
-    font-size: var(--font-size-lg);
-    font-style: italic;
-    color: var(--sun);
-  }
-
-  .hero-wave {
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-    z-index: 4;
-  }
-
-  .hero-wave svg {
-    display: block;
-    width: 100%;
-    height: auto;
+    border: 3px solid var(--ocean-light);
+    margin: 0 auto var(--space-md);
   }
 
   /* Events */
@@ -204,12 +124,12 @@ import cjLogo from '../assets/images/coconut-joes-logo.jpg';
   }
 
   .event-card.featured {
-    background: var(--charcoal);
-    color: var(--sand);
+    background: var(--ocean);
+    color: var(--white);
   }
 
   .event-card.featured .event-day {
-    color: var(--sun);
+    color: var(--ocean-light);
   }
 
   .event-card.featured h3 {
@@ -278,20 +198,6 @@ import cjLogo from '../assets/images/coconut-joes-logo.jpg';
     line-height: 1.7;
   }
 
-  /* CTA */
-  .tiki-cta {
-    padding: var(--space-xl) 0;
-  }
-
-  .tiki-cta h2 {
-    margin-bottom: 0.3em;
-  }
-
-  .cta-sub {
-    font-size: var(--font-size-base);
-    color: var(--warm-brown);
-    margin-bottom: var(--space-md);
-  }
 
   @media (min-width: 40rem) {
     .events-grid {

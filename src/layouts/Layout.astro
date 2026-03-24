@@ -102,10 +102,10 @@ const navLinks = [
       <slot />
     </main>
 
-    <footer class="site-footer grain">
+    <footer class="site-footer">
       <div class="footer-wave">
         <svg viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 L0,0 Z" fill="var(--cream)" />
+          <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 L0,0 Z" fill="var(--footer-wave-fill, var(--cream))" />
         </svg>
       </div>
       <div class="footer-inner container">
@@ -210,7 +210,7 @@ const navLinks = [
       }
 
       .site-header.scrolled {
-        background-color: oklch(0.96 0.015 80 / 0.95);
+        background-color: oklch(0.96 0.01 195 / 0.95);
         backdrop-filter: blur(12px);
         box-shadow: 0 2px 20px oklch(0.25 0.015 60 / 0.06);
       }
@@ -304,7 +304,7 @@ const navLinks = [
         left: 0;
         width: 0;
         height: 3px;
-        background-color: var(--sun);
+        background-color: var(--ocean);
         transition: width 0.3s ease;
       }
 
@@ -425,7 +425,7 @@ const navLinks = [
         justify-content: space-between;
         gap: var(--space-sm);
         padding-top: var(--space-md);
-        border-top: 1px solid oklch(0.4 0.01 60);
+        border-top: 1px solid oklch(0.4 0.02 60);
       }
 
       .cash-badge {

@@ -4,22 +4,18 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="The Beach Room Banquets | Beach House Restaurant" description="The Beach Room banquet facility in Finleyville, PA. Weddings, showers, birthday parties, and more. 2 bars, stage, dance floor, movie screen.">
 
-  <section class="banquet-hero grain">
+  <section class="page-hero">
     <div class="container">
-      <div class="hero-content">
-        <span class="hero-badge">Private Events</span>
-        <h1>The Beach<br />Room</h1>
-        <p class="hero-lead">The Beach House's large banquet facility, perfect for weddings, showers, birthday parties, and more.</p>
-      </div>
+      <span class="hero-badge">Private Events</span>
+      <h1>The Beach Room</h1>
+      <p class="hero-sub">Weddings, showers, birthdays, and more.</p>
     </div>
-    <div class="hero-wave">
-      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,20 C360,70 720,0 1080,50 C1260,70 1380,30 1440,40 L1440,80 L0,80 Z" fill="var(--cream)" />
-      </svg>
-    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="var(--cream)" />
+    </svg>
   </section>
 
-  <section class="amenities section">
+  <section class="amenities">
     <div class="container">
       <h2 class="section-heading">Everything you need for your event</h2>
 
@@ -102,7 +98,7 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <section class="events-cta grain">
+  <section class="events-cta">
     <div class="container">
       <div class="cta-card">
         <div class="cta-content">
@@ -134,72 +130,13 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
-  .banquet-hero {
-    background-color: var(--charcoal);
-    padding: var(--space-2xl) 0 0;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .banquet-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 80% 20%, oklch(0.52 0.1 230 / 0.15), transparent 60%),
-      radial-gradient(ellipse at 20% 80%, oklch(0.87 0.14 88 / 0.08), transparent 50%);
-    z-index: 1;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 3;
-    max-width: 36rem;
-  }
-
-  .hero-badge {
-    display: inline-block;
-    font-family: var(--font-body);
-    font-size: var(--font-size-xs);
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--sun);
-    margin-bottom: var(--space-sm);
-  }
-
-  .banquet-hero h1 {
-    font-size: var(--font-size-hero);
-    font-weight: 900;
-    color: var(--white);
-    letter-spacing: -0.03em;
-    line-height: 1;
-    margin-bottom: var(--space-md);
-  }
-
-  .hero-lead {
-    font-size: var(--font-size-lg);
-    color: var(--sand);
-    line-height: 1.6;
-    max-width: 28rem;
-    padding-bottom: var(--space-xl);
-  }
-
-  .hero-wave {
-    position: relative;
-    z-index: 4;
-    margin-top: -1px;
-  }
-
-  .hero-wave svg {
-    display: block;
-    width: 100%;
-    height: auto;
+  .amenities {
+    padding: var(--space-lg) 0 0;
   }
 
   .section-heading {
     text-align: center;
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-lg);
     color: var(--charcoal);
   }
 
@@ -233,8 +170,7 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .events-cta {
-    background-color: var(--sand);
-    padding: var(--space-xl) 0;
+    padding: var(--space-xl) 0 var(--space-2xl);
   }
 
   .cta-card {

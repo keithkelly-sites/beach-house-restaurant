@@ -51,9 +51,9 @@
     --cream: oklch(0.96 0.015 80);
     --sand: oklch(0.92 0.028 75);
     --sand-dark: oklch(0.85 0.035 72);
-    --ocean: oklch(0.52 0.1 230);
-    --ocean-light: oklch(0.72 0.07 225);
-    --ocean-faded: oklch(0.88 0.04 220);
+    --ocean: oklch(0.52 0.1 195);
+    --ocean-light: oklch(0.68 0.08 195);
+    --ocean-faded: oklch(0.88 0.04 195);
     --sun: oklch(0.87 0.14 88);
     --sun-pale: oklch(0.94 0.06 88);
     --coral: oklch(0.62 0.16 25);
@@ -122,7 +122,7 @@
   p + p { margin-top: 1em; }
 
   ::selection {
-    background-color: var(--sun);
+    background-color: var(--ocean-light);
     color: var(--charcoal);
   }
 }
@@ -193,18 +193,18 @@
   }
 
   .btn-primary:hover {
-    background-color: var(--charcoal);
+    background-color: oklch(0.42 0.1 195);
     transform: translateY(-2px);
   }
 
   .btn-outline {
-    border: 2px solid var(--charcoal);
-    color: var(--charcoal);
+    border: 2px solid var(--ocean);
+    color: var(--ocean);
   }
 
   .btn-outline:hover {
-    background-color: var(--charcoal);
-    color: var(--cream);
+    background-color: var(--ocean);
+    color: var(--white);
     transform: translateY(-2px);
   }
 
@@ -217,8 +217,8 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     padding: 0.3em 0.8em;
-    background-color: var(--sun);
-    color: var(--charcoal);
+    background-color: var(--ocean);
+    color: var(--white);
     border-radius: var(--radius);
   }
 
@@ -228,6 +228,86 @@
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: 0 2px 20px oklch(0.25 0.015 60 / 0.08);
+  }
+}
+
+@layer page-patterns {
+  /* Shared page hero — solid ocean blue, centered text, angled bottom */
+  .page-hero {
+    background-color: var(--ocean);
+    padding: var(--space-2xl) 0 0;
+    text-align: center;
+    position: relative;
+  }
+
+  .page-hero .hero-wave {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: var(--space-lg);
+    margin-bottom: -1px;
+  }
+
+  .page-hero .hero-badge {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ocean-faded);
+    margin-bottom: var(--space-sm);
+  }
+
+  .page-hero h1 {
+    font-size: var(--font-size-hero);
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: -0.03em;
+    margin-bottom: 0.1em;
+  }
+
+  .page-hero .hero-sub {
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    font-style: italic;
+    color: var(--ocean-light);
+  }
+
+  /* Shared page CTA — ocean blue, angled top */
+  .page-cta {
+    background-color: var(--ocean);
+    color: var(--white);
+    padding: var(--space-2xl) 0 var(--space-xl);
+  }
+
+  .page-cta .cta-heading {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.3em;
+  }
+
+  .page-cta .cta-sub {
+    font-size: var(--font-size-base);
+    color: var(--ocean-faded);
+    margin-bottom: var(--space-md);
+  }
+
+  .page-cta .btn-primary {
+    background-color: var(--white);
+    color: var(--ocean);
+  }
+
+  .page-cta .btn-primary:hover {
+    background-color: var(--charcoal);
+    color: var(--white);
+  }
+
+  /* Shared content section */
+  .page-body {
+    padding: var(--space-xl) 0;
   }
 }
 
