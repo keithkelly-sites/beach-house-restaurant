@@ -23,6 +23,7 @@ import { Image } from 'astro:assets';
 import heroImg from '../assets/images/home-hero-full.jpg';
 import coconutJoes02 from '../assets/images/coconut-joes-02.jpg';
 import coconutJoesLogo from '../assets/images/coconut-joes-logo.jpg';
+import mapImg from '../assets/images/map-osm.png';
 ---
 
 <Layout title="Beach House Restaurant | Your Favorite Family Diner | Finleyville, PA" description="Breakfast and lunch served daily in Finleyville, PA. Family diner with beach-themed menu, tiki bar, and banquet hall. Cash only. Open 7am-1:30pm.">
@@ -236,41 +237,17 @@ import coconutJoesLogo from '../assets/images/coconut-joes-logo.jpg';
             class="map-link"
             aria-label="Get directions to Beach House Restaurant on Google Maps"
           >
-            <div class="map-svg-wrap">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" class="location-map-svg" role="img" aria-label="Map showing Beach House Restaurant location on Route 88 in Finleyville, PA">
-                <rect width="600" height="400" fill="oklch(0.94 0.012 75)" rx="4"/>
-                <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M296.6,181.9 L293.4,187.4 L286.8,198.8 L282.0,207.1 L273.9,223.1 L277.9,240.1 L282.7,252.5 L288.8,271.3 L291.6,279.1" stroke="oklch(0.82 0.01 70)" stroke-width="3"/>
-                  <path d="M225.9,132.8 L237.2,127.8 L241.2,127.3 L249.7,127.4 L258.0,127.1 L264.4,125.3 L266.9,124.1 L273.5,117.6 L293.4,93.2 L303.0,71.5 L303.2,45.8 L301.8,41.2 L299.8,37.1" stroke="oklch(0.82 0.01 70)" stroke-width="3"/>
-                  <path d="M303.0,71.5 L308.3,71.8 L314.4,70.6 L321.5,65.8 L326.9,59.9 L338.4,42.7" stroke="oklch(0.82 0.01 70)" stroke-width="3"/>
-                  <path d="M493.9,305.4 L517.2,316.1 L537.5,324.8 L553.3,330.0 L565.4,333.9 L580.1,339.0 L585.5,342.3 L588.4,344.7 L591.9,349.9" stroke="oklch(0.82 0.01 70)" stroke-width="3"/>
-                  <path d="M580.8,288.2 L587.8,268.6 L594.4,256.1 L605.6,242.2" stroke="oklch(0.82 0.01 70)" stroke-width="3"/>
-                  <path d="M-31.7,236.4 L-16.5,246.1 L-4.3,252.8 L6.7,260.3 L14.7,266.8 L28.2,283.5 L35.3,292.3 L83.7,352.5 L95.5,366.6 L114.6,389.7" stroke="oklch(0.82 0.01 70)" stroke-width="3"/>
-                  <path d="M408.8,119.7 L400.8,76.6" stroke="oklch(0.82 0.01 70)" stroke-width="3"/>
-                  <path d="M431.6,100.3 L423.1,56.9 L417.7,39.0 L397.4,10.4" stroke="oklch(0.82 0.01 70)" stroke-width="3"/>
-                  <path d="M497.6,272.5 L496.3,287.4 L493.9,305.4 L490.3,317.9 L486.3,323.7 L480.4,329.9 L469.8,337.8 L427.1,353.1 L411.1,359.5 L399.9,365.5 L393.1,371.5 L387.6,379.1 L384.7,386.2" stroke="oklch(0.82 0.01 70)" stroke-width="3"/>
-                  <path d="M319.6,200.4 L405.2,123.0 L408.8,119.7 L431.6,100.3 L455.9,79.0 L464.5,65.9 L467.0,45.8 L462.9,27.9 L458.6,11.6" stroke="oklch(0.82 0.01 70)" stroke-width="3"/>
-                  <path d="M304.8,-4.1 L299.9,1.7 L294.3,6.4 L287.9,6.3 L281.4,4.0 L268.6,-3.1 L261.4,-6.3 L254.5,-5.2 L251.4,-3.1 L249.2,1.0 L252.7,11.0 L260.2,14.2 L283.0,25.7 L291.4,30.8 L299.8,37.1" stroke="oklch(0.82 0.01 70)" stroke-width="3"/>
-                  <path d="M574.2,177.3 L577.3,173.6 L587.5,147.7 L587.1,139.1 L584.4,132.9 L577.6,127.2 L514.0,104.6 L492.0,87.1" stroke="oklch(0.82 0.01 70)" stroke-width="3"/>
-                  <path d="M458.5,136.1 L459.9,125.4 L462.6,116.0 L470.9,105.0 L492.0,87.1 L509.2,46.9" stroke="oklch(0.82 0.01 70)" stroke-width="3"/>
-                  <path d="M405.2,123.0 L417.9,134.2 L428.8,138.0 L458.5,136.1 L473.9,140.0 L505.0,159.4 L520.7,166.3 L533.1,169.1 L552.9,170.9 L569.2,177.1 L574.2,177.3" stroke="oklch(0.82 0.01 70)" stroke-width="3"/>
-                  <path d="M225.9,132.8 L196.8,112.7 L195.1,111.5 L175.0,96.9 L169.6,92.5 L163.1,85.9 L153.6,74.9 L146.4,66.5 L134.5,52.4 L125.3,41.6 L122.7,38.5 L109.1,22.5 L105.5,18.5 L101.5,14.3 L97.5,10.5 L92.8,6.8 L91.9,6.2 L71.7,-6.8" stroke="oklch(0.72 0.015 65)" stroke-width="5.5"/>
-                  <path d="M91.9,6.2 L100.1,-6.0 L101.9,-8.7 L107.9,-16.8 L112.4,-21.4 L116.7,-25.6 L122.3,-30.5 L129.5,-35.2" stroke="oklch(0.72 0.015 65)" stroke-width="5.5"/>
-                </g>
-                <g>
-                  <text x="273.9" y="223.1" font-size="8.5" fill="oklch(0.5 0.02 60)" text-anchor="middle" transform="rotate(-82.9,273.9,223.1)" font-family="var(--font-body), system-ui, sans-serif">Beach Street</text>
-                  <text x="160" y="105" font-size="11" fill="oklch(0.35 0.03 55)" text-anchor="middle" transform="rotate(-20,160,105)" font-family="var(--font-body), system-ui, sans-serif" font-weight="600">Route 88</text>
-                  <text x="266.9" y="124.1" font-size="8.5" fill="oklch(0.5 0.02 60)" text-anchor="middle" transform="rotate(-40.2,266.9,124.1)" font-family="var(--font-body), system-ui, sans-serif">Library Sportsman Rd</text>
-                  <text x="455.9" y="79.0" font-size="8.5" fill="oklch(0.5 0.02 60)" text-anchor="middle" transform="rotate(-46.3,455.9,79.0)" font-family="var(--font-body), system-ui, sans-serif">Hidden Hollow Rd</text>
-                  <text x="505.0" y="159.4" font-size="8.5" fill="oklch(0.5 0.02 60)" text-anchor="middle" transform="rotate(29.3,505.0,159.4)" font-family="var(--font-body), system-ui, sans-serif">Village Lane</text>
-                  <text x="411.1" y="359.5" font-size="8.5" fill="oklch(0.5 0.02 60)" text-anchor="middle" transform="rotate(-24.5,411.1,359.5)" font-family="var(--font-body), system-ui, sans-serif">Walter Long Rd</text>
-                  <text x="50" y="290" font-size="8.5" fill="oklch(0.5 0.02 60)" text-anchor="middle" transform="rotate(-52,50,290)" font-family="var(--font-body), system-ui, sans-serif">McClelland Rd</text>
-                  <circle cx="300" cy="203" r="7" fill="oklch(0.25 0.01 60 / 0.12)"/>
-                  <path d="M300,184 C293,184 290,191 290,195 C290,201 300,207 300,207 C300,207 310,201 310,195 C310,191 307,184 300,184Z" fill="oklch(0.52 0.1 230)"/>
-                  <circle cx="300" cy="194" r="3.5" fill="white"/>
-                  <text x="592" y="392" font-size="7" fill="oklch(0.6 0.01 60)" text-anchor="end" font-family="system-ui, sans-serif">&copy; OpenStreetMap</text>
-                </g>
-              </svg>
+            <div class="map-img-wrap">
+              <Image
+                src={mapImg}
+                alt="Map showing Beach House Restaurant location on Route 88 in Finleyville, PA"
+                class="map-image"
+                width={800}
+                height={500}
+                loading="lazy"
+                layout="constrained"
+              />
+              <span class="map-attribution">&copy; OpenStreetMap contributors</span>
             </div>
             <div class="map-bar">
               <span class="map-bar-name">Beach House Restaurant</span>
@@ -779,14 +756,27 @@ import coconutJoesLogo from '../assets/images/coconut-joes-logo.jpg';
     text-decoration: none;
   }
 
-  .map-svg-wrap {
+  .map-img-wrap {
     overflow: hidden;
+    position: relative;
   }
 
-  .location-map-svg {
+  .map-image {
     display: block;
     width: 100%;
     height: auto;
+    filter: sepia(0.25) saturate(0.7) contrast(1.05) brightness(1.02);
+  }
+
+  .map-attribution {
+    position: absolute;
+    bottom: 6px;
+    right: 8px;
+    font-size: 9px;
+    color: oklch(0.5 0.01 60);
+    background: oklch(0.96 0.01 80 / 0.8);
+    padding: 1px 4px;
+    border-radius: 2px;
   }
 
   .map-bar {
